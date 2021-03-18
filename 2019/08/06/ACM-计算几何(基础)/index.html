@@ -1,0 +1,702 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=&#34;auto&#34;>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="https://cdn.jsdelivr.net/gh/Hsueh-Xue/Hsueh-Xue.github.io@master/img/favicon.png">
+  <link rel="icon" type="image/png" href="https://cdn.jsdelivr.net/gh/Hsueh-Xue/Hsueh-Xue.github.io@master/img/favicon.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="">
+  <meta name="author" content="Hsueh">
+  <meta name="keywords" content="">
+  <title>ACM-计算几何(基础) - Hsueh&#39; blog</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Hsueh-Xue/Hsueh-Xue.github.io@master/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.4.0/styles/github-gist.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+  
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"blog.hsueh.club","root":"/","version":"1.8.7","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":true},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":true,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"onlypost":false},"web_analytics":{"enable":true,"baidu":"d41ced546e0d98131079f76f87dd8046","google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}}};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.3.0"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>Hsueh's blog</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/">
+                <i class="iconfont icon-link-fill"></i>
+                友链
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" href="javascript:">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('https://cdn.jsdelivr.net/gh/Hsueh-Xue/Hsueh-Xue.github.io@master/img/default.png') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="ACM-计算几何(基础)">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-author" aria-hidden="true"></i>
+      Hsueh
+    </span>
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2019-08-06 15:40" pubdate>
+        星期二, 八月 6日 2019, 3:40 下午
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      2k 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      33
+       分钟
+    </span>
+  
+
+  
+  
+    
+      <!-- 不蒜子统计文章PV -->
+      <span id="busuanzi_container_page_pv" style="display: none">
+        <i class="iconfont icon-eye" aria-hidden="true"></i>
+        <span id="busuanzi_value_page_pv"></span> 次
+      </span>
+    
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">ACM-计算几何(基础)</h1>
+            
+              <p class="note note-info">
+                
+                  本文最后更新于：星期二, 四月 28日 2020, 5:02 下午
+                
+              </p>
+            
+            <div class="markdown-body">
+              <h2 id="1准备知识"><a class="markdownIt-Anchor" href="#1准备知识"></a> 1.准备知识</h2>
+<h3 id="11-起手式"><a class="markdownIt-Anchor" href="#11-起手式"></a> 1.1 起手式</h3>
+<figure class="highlight c++"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs C++"><br><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;bits/stdc++.h&gt;</span></span><br><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> <span class="hljs-built_in">std</span>;<br><br><span class="hljs-keyword">typedef</span> <span class="hljs-keyword">double</span> db;<br><br><span class="hljs-keyword">const</span> db eps = <span class="hljs-number">1e-8</span>;<br><span class="hljs-keyword">const</span> db PI = <span class="hljs-built_in">acos</span>(<span class="hljs-number">-1.0</span>);<br><br><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">sgn</span><span class="hljs-params">(db x)</span> </span>&#123;<br>    <span class="hljs-keyword">if</span> (<span class="hljs-built_in">fabs</span>(x) &lt; eps) &#123;<br>        <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>    &#125; <span class="hljs-keyword">else</span> &#123;<br>        <span class="hljs-keyword">return</span> x &gt; <span class="hljs-number">0</span> ? <span class="hljs-number">1</span> : <span class="hljs-number">-1</span>;<br>    &#125;<br>&#125;<br><br><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> </span>&#123;<br>    db x = <span class="hljs-number">0.4999</span>;<br>    <span class="hljs-keyword">int</span> fx = <span class="hljs-built_in">floor</span>(x);<span class="hljs-comment">//向下取整</span><br>    <span class="hljs-keyword">int</span> cx = <span class="hljs-built_in">ceil</span>(x);<span class="hljs-comment">//向上取整</span><br>    <span class="hljs-keyword">int</span> rx = round(x);<span class="hljs-comment">//四舍五入</span><br>    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;%f %d %d %d\n&quot;</span>, x, fx, cx, rx);<br>    <span class="hljs-comment">//0.499900 0 1 0</span><br>    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br><br></code></pre></div></td></tr></table></figure>
+<h2 id="2-点和向量"><a class="markdownIt-Anchor" href="#2-点和向量"></a> 2. 点和向量</h2>
+<h3 id="21-点和向量的定义"><a class="markdownIt-Anchor" href="#21-点和向量的定义"></a> 2.1 点和向量的定义</h3>
+<figure class="highlight c++"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs C++"><br><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">Point</span> &#123;</span><br>    db x, y;<br><br>    Point() &#123;&#125;<br>    <br>    Point(db _x, db _y) &#123;<br>        x = _x;<br>        y = _y;<br>    &#125;<br>&#125;;<br><br></code></pre></div></td></tr></table></figure>
+<h3 id="22-相关运算"><a class="markdownIt-Anchor" href="#22-相关运算"></a> 2.2 相关运算</h3>
+<h4 id="221-加法"><a class="markdownIt-Anchor" href="#221-加法"></a> 2.2.1 加法</h4>
+<ul>
+<li>点和向量相加得到另一个点</li>
+<li>向量和向量相加得到另一个向量</li>
+</ul>
+<figure class="highlight c++"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs C++"><br>Point <span class="hljs-keyword">operator</span>+(<span class="hljs-keyword">const</span> Point &amp;other) <span class="hljs-keyword">const</span> &#123;<br>    <span class="hljs-keyword">return</span> &#123;x + other.x, y + other.y&#125;;<br>&#125;<br><br></code></pre></div></td></tr></table></figure>
+<h4 id="222-减法"><a class="markdownIt-Anchor" href="#222-减法"></a> 2.2.2 减法</h4>
+<ul>
+<li>两点差得到一个向量</li>
+<li><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>A</mi><mo>−</mo><mi>B</mi></mrow><annotation encoding="application/x-tex">A-B</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.76666em;vertical-align:-0.08333em;"></span><span class="mord mathdefault">A</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.05017em;">B</span></span></span></span>得到向量<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mover accent="true"><mrow><mi>B</mi><mi>A</mi></mrow><mo>⃗</mo></mover></mrow><annotation encoding="application/x-tex">\vec{BA}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.9663299999999999em;vertical-align:0em;"></span><span class="mord accent"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.9663299999999999em;"><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.05017em;">B</span><span class="mord mathdefault">A</span></span></span><span style="top:-3.25233em;"><span class="pstrut" style="height:3em;"></span><span class="accent-body" style="left:-0.2355em;"><span class="overlay" style="height:0.714em;width:0.471em;"><svg width='0.471em' height='0.714em' style='width:0.471em' viewBox='0 0 471 714' preserveAspectRatio='xMinYMin'><path d='M377 20c0-5.333 1.833-10 5.5-14S391 0 397 0c4.667 0 8.667 1.667 12 5
+3.333 2.667 6.667 9 10 19 6.667 24.667 20.333 43.667 41 57 7.333 4.667 11
+10.667 11 18 0 6-1 10-3 12s-6.667 5-14 9c-28.667 14.667-53.667 35.667-75 63
+-1.333 1.333-3.167 3.5-5.5 6.5s-4 4.833-5 5.5c-1 .667-2.5 1.333-4.5 2s-4.333 1
+-7 1c-4.667 0-9.167-1.833-13.5-5.5S337 184 337 178c0-12.667 15.667-32.333 47-59
+H213l-171-1c-8.667-6-13-12.333-13-19 0-4.667 4.333-11.333 13-20h359
+c-16-25.333-24-45-24-59z'/></svg></span></span></span></span></span></span></span></span></span></span></li>
+</ul>
+<figure class="highlight c++"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs C++"><br>Point <span class="hljs-keyword">operator</span>-(<span class="hljs-keyword">const</span> Point &amp;other) <span class="hljs-keyword">const</span> &#123;<br>    <span class="hljs-keyword">return</span> &#123;x - other.x, y - other.y&#125;;<br>&#125;<br><br></code></pre></div></td></tr></table></figure>
+<h4 id="223-乘法"><a class="markdownIt-Anchor" href="#223-乘法"></a> 2.2.3 乘法</h4>
+<ul>
+<li>缩放</li>
+</ul>
+<figure class="highlight c++"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs C++"><br>Point <span class="hljs-keyword">operator</span>*(<span class="hljs-keyword">const</span> db &amp;other) <span class="hljs-keyword">const</span> &#123;<br>    <span class="hljs-keyword">return</span> &#123;x * other, y * other&#125;;<br>&#125;<br><br></code></pre></div></td></tr></table></figure>
+<h4 id="224-除法"><a class="markdownIt-Anchor" href="#224-除法"></a> 2.2.4 除法</h4>
+<ul>
+<li>缩放</li>
+</ul>
+<figure class="highlight c++"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs C++"><br>Point <span class="hljs-keyword">operator</span>/(<span class="hljs-keyword">const</span> db &amp;other) <span class="hljs-keyword">const</span> &#123;<br>    <span class="hljs-keyword">return</span> &#123;x / other, y / other&#125;;<br>&#125;<br><br></code></pre></div></td></tr></table></figure>
+<h4 id="225-点积"><a class="markdownIt-Anchor" href="#225-点积"></a> 2.2.5 点积</h4>
+<p><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>α</mi><mo>⋅</mo><mi>β</mi><mo>=</mo><mi mathvariant="normal">∣</mi><mi>α</mi><mi mathvariant="normal">∣</mi><mo>⋅</mo><mi mathvariant="normal">∣</mi><mi>β</mi><mi mathvariant="normal">∣</mi><mo>⋅</mo><mi>c</mi><mi>o</mi><mi>s</mi><mi>θ</mi></mrow><annotation encoding="application/x-tex">\alpha \cdot \beta  = \vert \alpha \vert  \cdot \vert \beta\vert  \cdot cos\theta</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.44445em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.0037em;">α</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">⋅</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord mathdefault" style="margin-right:0.05278em;">β</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">∣</span><span class="mord mathdefault" style="margin-right:0.0037em;">α</span><span class="mord">∣</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">⋅</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">∣</span><span class="mord mathdefault" style="margin-right:0.05278em;">β</span><span class="mord">∣</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">⋅</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathdefault">c</span><span class="mord mathdefault">o</span><span class="mord mathdefault">s</span><span class="mord mathdefault" style="margin-right:0.02778em;">θ</span></span></span></span></p>
+<p>几何意义</p>
+<ul>
+<li>若<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>α</mi></mrow><annotation encoding="application/x-tex">\alpha</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.0037em;">α</span></span></span></span>与<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>β</mi></mrow><annotation encoding="application/x-tex">\beta</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord mathdefault" style="margin-right:0.05278em;">β</span></span></span></span>的夹角为锐角，则其点积为正</li>
+<li>若<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>α</mi></mrow><annotation encoding="application/x-tex">\alpha</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.0037em;">α</span></span></span></span>与<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>β</mi></mrow><annotation encoding="application/x-tex">\beta</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord mathdefault" style="margin-right:0.05278em;">β</span></span></span></span>的夹角为钝角，则其点积为负</li>
+<li>若<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>α</mi></mrow><annotation encoding="application/x-tex">\alpha</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.0037em;">α</span></span></span></span>与<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>β</mi></mrow><annotation encoding="application/x-tex">\beta</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord mathdefault" style="margin-right:0.05278em;">β</span></span></span></span>的夹角为支教，则其点积为0</li>
+<li>向量<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>α</mi></mrow><annotation encoding="application/x-tex">\alpha</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.0037em;">α</span></span></span></span>在<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>β</mi></mrow><annotation encoding="application/x-tex">\beta</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord mathdefault" style="margin-right:0.05278em;">β</span></span></span></span>上的投影长度和<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>β</mi></mrow><annotation encoding="application/x-tex">\beta</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord mathdefault" style="margin-right:0.05278em;">β</span></span></span></span>的长度乘积</li>
+</ul>
+<figure class="highlight c++"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs C++"><br>db <span class="hljs-keyword">operator</span>*(<span class="hljs-keyword">const</span> Point &amp;other) <span class="hljs-keyword">const</span> &#123;<br>    <span class="hljs-keyword">return</span> x * other.x + y * other.y;<br>&#125;<br><br></code></pre></div></td></tr></table></figure>
+<h4 id="226-叉积"><a class="markdownIt-Anchor" href="#226-叉积"></a> 2.2.6 叉积</h4>
+<p><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>α</mi><mo>⋅</mo><mi>β</mi><mo>=</mo><mi mathvariant="normal">∣</mi><mi>α</mi><mi mathvariant="normal">∣</mi><mo>⋅</mo><mi mathvariant="normal">∣</mi><mi>β</mi><mi mathvariant="normal">∣</mi><mo>⋅</mo><mi>s</mi><mi>i</mi><mi>n</mi><mi>θ</mi></mrow><annotation encoding="application/x-tex">\alpha \cdot \beta  = \vert \alpha\vert \cdot \vert \beta\vert  \cdot sin\theta</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.44445em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.0037em;">α</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">⋅</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord mathdefault" style="margin-right:0.05278em;">β</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">∣</span><span class="mord mathdefault" style="margin-right:0.0037em;">α</span><span class="mord">∣</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">⋅</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">∣</span><span class="mord mathdefault" style="margin-right:0.05278em;">β</span><span class="mord">∣</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">⋅</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathdefault">s</span><span class="mord mathdefault">i</span><span class="mord mathdefault">n</span><span class="mord mathdefault" style="margin-right:0.02778em;">θ</span></span></span></span></p>
+<p>几何意义：</p>
+<ul>
+<li>若<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>β</mi></mrow><annotation encoding="application/x-tex">\beta</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord mathdefault" style="margin-right:0.05278em;">β</span></span></span></span>在<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>α</mi></mrow><annotation encoding="application/x-tex">\alpha</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.0037em;">α</span></span></span></span>的逆时针方向，叉积为正</li>
+<li>若<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>β</mi></mrow><annotation encoding="application/x-tex">\beta</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord mathdefault" style="margin-right:0.05278em;">β</span></span></span></span>在<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>α</mi></mrow><annotation encoding="application/x-tex">\alpha</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.0037em;">α</span></span></span></span>的顺时针方向，叉积为负</li>
+<li>若<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>β</mi></mrow><annotation encoding="application/x-tex">\beta</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord mathdefault" style="margin-right:0.05278em;">β</span></span></span></span>在<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>α</mi></mrow><annotation encoding="application/x-tex">\alpha</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.0037em;">α</span></span></span></span>平行，叉积为0</li>
+<li>向量<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>α</mi></mrow><annotation encoding="application/x-tex">\alpha</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.0037em;">α</span></span></span></span>和向量<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>β</mi></mrow><annotation encoding="application/x-tex">\beta</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord mathdefault" style="margin-right:0.05278em;">β</span></span></span></span>形成的平行四边形的<strong>有向</strong>面积</li>
+</ul>
+<figure class="highlight c++"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs C++"><br>db <span class="hljs-keyword">operator</span>^(<span class="hljs-keyword">const</span> Point &amp;other) <span class="hljs-keyword">const</span> &#123;<br>    <span class="hljs-keyword">return</span> x * other.y - y * other.x;<br>&#125;<br><br></code></pre></div></td></tr></table></figure>
+<h3 id="23-常用函数成员函数"><a class="markdownIt-Anchor" href="#23-常用函数成员函数"></a> 2.3 常用函数（成员函数）</h3>
+<h4 id="231-两点距离"><a class="markdownIt-Anchor" href="#231-两点距离"></a> 2.3.1 两点距离</h4>
+<figure class="highlight c++"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs C++"><br><span class="hljs-function">db <span class="hljs-title">distance</span><span class="hljs-params">(Point p)</span> </span>&#123;<br>    <span class="hljs-keyword">return</span> hypot(x - p.x, y - p.y);<br>&#125;<br><br></code></pre></div></td></tr></table></figure>
+<h4 id="232-逆时针旋转90度"><a class="markdownIt-Anchor" href="#232-逆时针旋转90度"></a> 2.3.2 逆时针旋转90度</h4>
+<figure class="highlight c++"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs C++"><br><span class="hljs-function">Point <span class="hljs-title">rotleft</span><span class="hljs-params">()</span> </span>&#123;<br>    <span class="hljs-keyword">return</span> &#123;-y, x&#125;;<br>&#125;<br><br></code></pre></div></td></tr></table></figure>
+<h4 id="233-顺时针旋转90度"><a class="markdownIt-Anchor" href="#233-顺时针旋转90度"></a> 2.3.3 顺时针旋转90度</h4>
+<figure class="highlight c++"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs C++"><br><span class="hljs-function">Point <span class="hljs-title">roright</span><span class="hljs-params">()</span> </span>&#123;<br>    <span class="hljs-keyword">return</span> &#123;y, -x&#125;;<br>&#125;<br><br></code></pre></div></td></tr></table></figure>
+<h4 id="234-绕着点p逆时针旋转angle"><a class="markdownIt-Anchor" href="#234-绕着点p逆时针旋转angle"></a> 2.3.4 绕着点P逆时针旋转angle</h4>
+<figure class="highlight c++"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs C++"><br><span class="hljs-function">Point <span class="hljs-title">rotate</span><span class="hljs-params">(Point p, db angle)</span> </span>&#123;<br>    Point v = (*<span class="hljs-keyword">this</span>) - p;<br>    db c = <span class="hljs-built_in">cos</span>(angle), s = <span class="hljs-built_in">sin</span>(angle);<br>    <span class="hljs-keyword">return</span> &#123;p.x + v.x * c - v.y * s, p.y + v.x * s + v.y * c&#125;;<br>&#125;<br><br></code></pre></div></td></tr></table></figure>
+<h4 id="235-tolefttest-函数"><a class="markdownIt-Anchor" href="#235-tolefttest-函数"></a> 2.3.5 ToLeftTest 函数</h4>
+<p>判断<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mover accent="true"><mrow><mi>b</mi><mi>c</mi></mrow><mo>⃗</mo></mover></mrow><annotation encoding="application/x-tex">\vec{bc}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.9774399999999999em;vertical-align:0em;"></span><span class="mord accent"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.9774399999999999em;"><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathdefault">b</span><span class="mord mathdefault">c</span></span></span><span style="top:-3.26344em;"><span class="pstrut" style="height:3em;"></span><span class="accent-body" style="left:-0.2355em;"><span class="overlay" style="height:0.714em;width:0.471em;"><svg width='0.471em' height='0.714em' style='width:0.471em' viewBox='0 0 471 714' preserveAspectRatio='xMinYMin'><path d='M377 20c0-5.333 1.833-10 5.5-14S391 0 397 0c4.667 0 8.667 1.667 12 5
+3.333 2.667 6.667 9 10 19 6.667 24.667 20.333 43.667 41 57 7.333 4.667 11
+10.667 11 18 0 6-1 10-3 12s-6.667 5-14 9c-28.667 14.667-53.667 35.667-75 63
+-1.333 1.333-3.167 3.5-5.5 6.5s-4 4.833-5 5.5c-1 .667-2.5 1.333-4.5 2s-4.333 1
+-7 1c-4.667 0-9.167-1.833-13.5-5.5S337 184 337 178c0-12.667 15.667-32.333 47-59
+H213l-171-1c-8.667-6-13-12.333-13-19 0-4.667 4.333-11.333 13-20h359
+c-16-25.333-24-45-24-59z'/></svg></span></span></span></span></span></span></span></span></span></span>是不是想两<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mover accent="true"><mrow><mi>a</mi><mi>b</mi></mrow><mo>⃗</mo></mover></mrow><annotation encoding="application/x-tex">\vec{ab}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.9774399999999999em;vertical-align:0em;"></span><span class="mord accent"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.9774399999999999em;"><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathdefault">a</span><span class="mord mathdefault">b</span></span></span><span style="top:-3.26344em;"><span class="pstrut" style="height:3em;"></span><span class="accent-body" style="left:-0.2355em;"><span class="overlay" style="height:0.714em;width:0.471em;"><svg width='0.471em' height='0.714em' style='width:0.471em' viewBox='0 0 471 714' preserveAspectRatio='xMinYMin'><path d='M377 20c0-5.333 1.833-10 5.5-14S391 0 397 0c4.667 0 8.667 1.667 12 5
+3.333 2.667 6.667 9 10 19 6.667 24.667 20.333 43.667 41 57 7.333 4.667 11
+10.667 11 18 0 6-1 10-3 12s-6.667 5-14 9c-28.667 14.667-53.667 35.667-75 63
+-1.333 1.333-3.167 3.5-5.5 6.5s-4 4.833-5 5.5c-1 .667-2.5 1.333-4.5 2s-4.333 1
+-7 1c-4.667 0-9.167-1.833-13.5-5.5S337 184 337 178c0-12.667 15.667-32.333 47-59
+H213l-171-1c-8.667-6-13-12.333-13-19 0-4.667 4.333-11.333 13-20h359
+c-16-25.333-24-45-24-59z'/></svg></span></span></span></span></span></span></span></span></span></span>的逆时针方向旋转 凸包</p>
+<figure class="highlight c++"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs C++"><br><span class="hljs-function"><span class="hljs-keyword">bool</span> <span class="hljs-title">ToLeftTest</span><span class="hljs-params">(Point a, Point b, Point c)</span> </span>&#123;<br>    <span class="hljs-keyword">return</span> ((b - a) ^ (c - b)) &gt; <span class="hljs-number">0</span>;<br>&#125;<br><br></code></pre></div></td></tr></table></figure>
+<h2 id="3-点和线"><a class="markdownIt-Anchor" href="#3-点和线"></a> 3. 点和线</h2>
+<h3 id="31-定义"><a class="markdownIt-Anchor" href="#31-定义"></a> 3.1 定义</h3>
+<h4 id="311直线定义"><a class="markdownIt-Anchor" href="#311直线定义"></a> 3.1.1直线定义</h4>
+<p>直线定义一般由三种形式</p>
+<ul>
+<li><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>a</mi><mi>x</mi><mo>+</mo><mi>b</mi><mi>y</mi><mo>+</mo><mi>c</mi><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">ax+by+c=0</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.66666em;vertical-align:-0.08333em;"></span><span class="mord mathdefault">a</span><span class="mord mathdefault">x</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord mathdefault">b</span><span class="mord mathdefault" style="margin-right:0.03588em;">y</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">c</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">0</span></span></span></span>一般式</li>
+<li><span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>x</mi><mn>0</mn></msub><mo>+</mo><msub><mi>y</mi><mn>0</mn></msub><mo>+</mo><msub><mi>v</mi><mi>x</mi></msub><mi>t</mi><mo>+</mo><msub><mi>v</mi><mi>y</mi></msub><mi>t</mi><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">x_0+y_0+v_xt+v_yt=0</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.73333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault">x</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">0</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.7777700000000001em;vertical-align:-0.19444em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.03588em;">y</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:-0.03588em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">0</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.76508em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.03588em;">v</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.151392em;"><span style="top:-2.5500000000000003em;margin-left:-0.03588em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">x</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mord mathdefault">t</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.9011879999999999em;vertical-align:-0.286108em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.03588em;">v</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.15139200000000003em;"><span style="top:-2.5500000000000003em;margin-left:-0.03588em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight" style="margin-right:0.03588em;">y</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.286108em;"><span></span></span></span></span></span></span><span class="mord mathdefault">t</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">0</span></span></span></span>点向式</li>
+<li><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>y</mi><mo>=</mo><mi>k</mi><mi>x</mi><mo>+</mo><mi>b</mi></mrow><annotation encoding="application/x-tex">y=kx+b</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="mord mathdefault" style="margin-right:0.03588em;">y</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.77777em;vertical-align:-0.08333em;"></span><span class="mord mathdefault" style="margin-right:0.03148em;">k</span><span class="mord mathdefault">x</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathdefault">b</span></span></span></span>斜截式</li>
+</ul>
+<h4 id="312-点向式"><a class="markdownIt-Anchor" href="#312-点向式"></a> 3.1.2 点向式</h4>
+<p><span class="katex-display"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>P</mi><mo>=</mo><msub><mi>P</mi><mi>o</mi></msub><mo>+</mo><mi>v</mi><mi>t</mi></mrow><annotation encoding="application/x-tex">P = P_o+vt
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.13889em;">P</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.83333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.13889em;">P</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.151392em;"><span style="top:-2.5500000000000003em;margin-left:-0.13889em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">o</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.61508em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.03588em;">v</span><span class="mord mathdefault">t</span></span></span></span></span></p>
+<p>用一个点加一个线段表示</p>
+<h3 id="312-构造方法"><a class="markdownIt-Anchor" href="#312-构造方法"></a> 3.1.2 构造方法</h3>
+<figure class="highlight c++"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs C++"><br><br><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">Line</span> &#123;</span><br>    Point s, e;<br><br>    Line() &#123;&#125;<br>    <br>    Line(Point _s, Point _e) &#123;<br>        s = _s;<br>        e = _e;<br>    &#125;<br>    <br>    Line(Point p, db angle) &#123;<br>        s = p;<br>        <span class="hljs-keyword">if</span> (sgn(angle - PI / <span class="hljs-number">2</span>) == <span class="hljs-number">0</span>) &#123;<br>            e = (s + Point(<span class="hljs-number">0</span>, <span class="hljs-number">1</span>));<br>        &#125; <span class="hljs-keyword">else</span> &#123;<br>            e = (s + Point(<span class="hljs-number">1</span>, <span class="hljs-built_in">tan</span>(angle)));<br>        &#125;<br>    &#125;<br>    <br>    <span class="hljs-comment">//ax + by + c = 0</span><br>    Line(db a, db b, db c) &#123;<br>        <span class="hljs-keyword">if</span> (sgn(a) == <span class="hljs-number">0</span>) &#123;<br>            s = Point(<span class="hljs-number">0</span>, -c / b);<br>            e = Point(<span class="hljs-number">1</span>, -c / b);<br>        &#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (sgn(b) == <span class="hljs-number">0</span>) &#123;<br>            s = Point(-c / a, <span class="hljs-number">0</span>);<br>            e = Point(-c / a, <span class="hljs-number">1</span>);<br>        &#125; <span class="hljs-keyword">else</span> &#123;<br>            s = Point(<span class="hljs-number">0</span>, -c / b);<br>            e = Point(<span class="hljs-number">1</span>, (-c - a) / b);<br>        &#125;<br>    &#125;<br>&#125;;<br><br></code></pre></div></td></tr></table></figure>
+<h4 id="312-常用函数"><a class="markdownIt-Anchor" href="#312-常用函数"></a> 3.1.2 常用函数</h4>
+<h5 id="3121-点和直线的关系"><a class="markdownIt-Anchor" href="#3121-点和直线的关系"></a> 3.1.2.1 点和直线的关系</h5>
+<figure class="highlight c++"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs C++"><br><span class="hljs-comment">//点和直线关系</span><br><span class="hljs-comment">//1 在左侧</span><br><span class="hljs-comment">//2 在右侧</span><br><span class="hljs-comment">//3 在直线上</span><br><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">relation</span><span class="hljs-params">(Point p)</span> </span>&#123;<br>    <span class="hljs-keyword">int</span> c = sgn((p - s) ^ (e - s));<br>    <span class="hljs-keyword">if</span> (c &lt; <span class="hljs-number">0</span>) <span class="hljs-keyword">return</span> <span class="hljs-number">1</span>;<br>    <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (c &gt; <span class="hljs-number">0</span>) <span class="hljs-keyword">return</span> <span class="hljs-number">2</span>;<br>    <span class="hljs-keyword">else</span> <span class="hljs-keyword">return</span> <span class="hljs-number">3</span>;<br>&#125;<br><br></code></pre></div></td></tr></table></figure>
+<h5 id="3122-点在线段上的判断"><a class="markdownIt-Anchor" href="#3122-点在线段上的判断"></a> 3.1.2.2 点在线段上的判断</h5>
+<figure class="highlight c++"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs C++"><br><span class="hljs-function"><span class="hljs-keyword">bool</span> <span class="hljs-title">pointonseg</span><span class="hljs-params">(Point p)</span> </span>&#123;<br>    <span class="hljs-keyword">return</span> sgn(((p - s) ^ (e - s))) == <span class="hljs-number">0</span> &amp;&amp; sgn((p - s) * (p - e)) &lt;= <span class="hljs-number">0</span>;<br>&#125;<br><br></code></pre></div></td></tr></table></figure>
+<h5 id="3122-向量平行判断"><a class="markdownIt-Anchor" href="#3122-向量平行判断"></a> 3.1.2.2 向量平行判断</h5>
+<figure class="highlight c++"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs C++"><br><span class="hljs-function"><span class="hljs-keyword">bool</span> <span class="hljs-title">parallel</span><span class="hljs-params">(Line v)</span> </span>&#123;<br>    <span class="hljs-keyword">return</span> sgn((e - s) ^ (v.e - v.s)) == <span class="hljs-number">0</span>;<br>&#125;<br><br></code></pre></div></td></tr></table></figure>
+<h5 id="3123-两线段相交判断"><a class="markdownIt-Anchor" href="#3123-两线段相交判断"></a> 3.1.2.3 两线段相交判断</h5>
+<figure class="highlight c++"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs C++"><br><span class="hljs-comment">//2 规范相交</span><br><span class="hljs-comment">//1 非规范相交</span><br><span class="hljs-comment">//0 不相交</span><br><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">segcrossseg</span><span class="hljs-params">(Line v)</span> </span>&#123;<br>    <span class="hljs-keyword">int</span> d1 = sgn((e - s) ^ (v.s - s));<br>    <span class="hljs-keyword">int</span> d2 = sgn((e - s) ^ (v.e - s));<br>    <span class="hljs-keyword">int</span> d3 = sgn((v.e - v.s) ^ (s - v.s));<br>    <span class="hljs-keyword">int</span> d4 = sgn((v.e - v.s) ^ (e - v.s));<br>    <span class="hljs-keyword">if</span> ((d1 ^ d2) == <span class="hljs-number">-2</span> &amp;&amp; (d3 ^ d4) == <span class="hljs-number">-2</span>) <span class="hljs-keyword">return</span> <span class="hljs-number">2</span>;<br>    <span class="hljs-keyword">return</span> ((d1 == <span class="hljs-number">0</span> &amp;&amp; sgn((v.s - s) * (v.s - e)) &lt;= <span class="hljs-number">0</span>) ||<br>            (d2 == <span class="hljs-number">0</span> &amp;&amp; sgn((v.e - s) * (v.e - e)) &lt;= <span class="hljs-number">0</span>) ||<br>            (d3 == <span class="hljs-number">0</span> &amp;&amp; sgn((s - v.s) * (s - v.e)) &lt;= <span class="hljs-number">0</span>) ||<br>            (d4 == <span class="hljs-number">0</span> &amp;&amp; sgn((e - v.s) * (e - v.e))) &lt;= <span class="hljs-number">0</span>);<br>&#125;<br><br></code></pre></div></td></tr></table></figure>
+<h5 id="3124-直线和线段相交判断"><a class="markdownIt-Anchor" href="#3124-直线和线段相交判断"></a> 3.1.2.4 直线和线段相交判断</h5>
+<figure class="highlight c++"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs C++"><br><span class="hljs-comment">//-*this line -v seg</span><br><span class="hljs-comment">//2 规范相交</span><br><span class="hljs-comment">//1 非规范相交</span><br><span class="hljs-comment">//0 不相交</span><br><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">linecrossseg</span><span class="hljs-params">(Line v)</span> </span>&#123;<br>    <span class="hljs-keyword">int</span> d1 = sgn((e - s) ^ (v.s - s));<br>    <span class="hljs-keyword">int</span> d2 = sgn((e - s) ^ (v.e - s));<br>    <span class="hljs-keyword">if</span> ((d1 ^ d2) == <span class="hljs-number">-2</span>) <span class="hljs-keyword">return</span> <span class="hljs-number">2</span>;<br>    <span class="hljs-keyword">return</span> (d1 == <span class="hljs-number">0</span> || d2 == <span class="hljs-number">0</span>);<br>&#125;<br><br></code></pre></div></td></tr></table></figure>
+<h5 id="3125-两直线关系"><a class="markdownIt-Anchor" href="#3125-两直线关系"></a> 3.1.2.5 两直线关系</h5>
+<figure class="highlight c++"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs C++"><br><span class="hljs-comment">//0 平行</span><br><span class="hljs-comment">//1 重合</span><br><span class="hljs-comment">//2 相交</span><br><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">linecrossline</span><span class="hljs-params">(Line v)</span> </span>&#123;<br>    <span class="hljs-keyword">if</span> ((*<span class="hljs-keyword">this</span>).parallel(v)) &#123;<br>        <span class="hljs-keyword">return</span> v.relation(s) == <span class="hljs-number">3</span>;<br>    &#125; <span class="hljs-keyword">else</span> &#123;<br>        <span class="hljs-keyword">return</span> <span class="hljs-number">2</span>;<br>    &#125;<br>&#125;<br><br></code></pre></div></td></tr></table></figure>
+<h5 id="3126-两直线交点"><a class="markdownIt-Anchor" href="#3126-两直线交点"></a> 3.1.2.6 两直线交点</h5>
+<figure class="highlight c++"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs C++"><br><span class="hljs-function">Point <span class="hljs-title">crosspoint</span><span class="hljs-params">(Line v)</span> </span>&#123;<br>    db a1 = (v.e - v.s) ^(s - v.s);<br>    db a2 = (v.e - v.s) ^(e - v.s);<br>    <span class="hljs-keyword">return</span> &#123;(s.x * a2 - e.x * a1) / (a1 - a1), (s.y * a2 - e.y * a1) / (a2 - a1)&#125;;<br>&#125;<br><br></code></pre></div></td></tr></table></figure>
+<h5 id="3127-点到直线的距离"><a class="markdownIt-Anchor" href="#3127-点到直线的距离"></a> 3.1.2.7 点到直线的距离</h5>
+<figure class="highlight c++"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs C++"><br><span class="hljs-function">db <span class="hljs-title">dispointtoline</span><span class="hljs-params">(Point p)</span> </span>&#123;<br>    <span class="hljs-keyword">return</span> <span class="hljs-built_in">fabs</span>((p - s) ^ (e - s)) / length();<br>&#125;<br><br></code></pre></div></td></tr></table></figure>
+<h6 id="3128-点到线段的距离"><a class="markdownIt-Anchor" href="#3128-点到线段的距离"></a> 3.1.2.8 点到线段的距离</h6>
+<figure class="highlight c++"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs C++"><br><span class="hljs-function">db <span class="hljs-title">dispointtoseg</span><span class="hljs-params">(Point p)</span> </span>&#123;<br>    <span class="hljs-keyword">if</span> (sgn((p - s) * (e - s)) &lt; <span class="hljs-number">0</span> || sgn((p - e) * (s - e)) &lt; <span class="hljs-number">0</span>) &#123;<br>        <span class="hljs-keyword">return</span> min(p.distance(e), p.distance(s));<br>    &#125; <span class="hljs-keyword">else</span> &#123;<br>        <span class="hljs-keyword">return</span> dispointtoline(p);<br>    &#125;<br>&#125;<br><br></code></pre></div></td></tr></table></figure>
+<h5 id="3129-线段到线段距离"><a class="markdownIt-Anchor" href="#3129-线段到线段距离"></a> 3.1.2.9 线段到线段距离</h5>
+<figure class="highlight c++"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs C++"><br><span class="hljs-function">db <span class="hljs-title">dissegtoseg</span><span class="hljs-params">(Line v)</span> </span>&#123;<br>    <span class="hljs-keyword">return</span> min(min(dispointtoseg(v.s), dispointtoseg(v.e)), min(v.dispointtoseg(s), v.dispointtoseg(e)));<br>&#125;<br><br></code></pre></div></td></tr></table></figure>
+<h5 id="31210-点在直线上的投影"><a class="markdownIt-Anchor" href="#31210-点在直线上的投影"></a> 3.1.2.10 点在直线上的投影</h5>
+<figure class="highlight c++"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs C++"><br><span class="hljs-function">Point <span class="hljs-title">lineprog</span><span class="hljs-params">(Point p)</span> </span>&#123;<br>    <span class="hljs-keyword">return</span> s + (((e - s) * ((e - s) * (p - s))) / ((e - s).len2()));<br>&#125;<br><br></code></pre></div></td></tr></table></figure>
+<h5 id="31211-点关于直线的对称点"><a class="markdownIt-Anchor" href="#31211-点关于直线的对称点"></a> 3.1.2.11 点关于直线的对称点</h5>
+<figure class="highlight c++"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs C++"><br><span class="hljs-function">Point <span class="hljs-title">symmetrypoint</span><span class="hljs-params">(Point p)</span> </span>&#123;<br>    Point q = lineprog(p);<br>    <span class="hljs-keyword">return</span> &#123;<span class="hljs-number">2</span> * q.x - p.x, <span class="hljs-number">2</span> * q.y - p.y&#125;;<br>&#125;<br><br></code></pre></div></td></tr></table></figure>
+<h2 id="4-多边形"><a class="markdownIt-Anchor" href="#4-多边形"></a> 4. 多边形</h2>
+<h3 id="41-三角形"><a class="markdownIt-Anchor" href="#41-三角形"></a> 4.1 三角形</h3>
+<h4 id="411-三角形面积"><a class="markdownIt-Anchor" href="#411-三角形面积"></a> 4.1.1 三角形面积</h4>
+<ul>
+<li>
+<p>利用两条边叉积</p>
+</li>
+<li>
+<p>海伦公式</p>
+<p><span class="katex-display"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>S</mi><mo>=</mo><msqrt><mrow><mi>p</mi><mo stretchy="false">(</mo><mi>p</mi><mo>−</mo><mi>a</mi><mo stretchy="false">)</mo><mo stretchy="false">(</mo><mi>p</mi><mo>−</mo><mi>b</mi><mo stretchy="false">)</mo><mo stretchy="false">(</mo><mi>p</mi><mo>−</mo><mi>c</mi><mo stretchy="false">)</mo></mrow></msqrt><mo separator="true">,</mo><mi>p</mi><mo>=</mo><mfrac><mrow><mi>a</mi><mo>+</mo><mi>b</mi><mo>+</mo><mi>c</mi></mrow><mn>2</mn></mfrac></mrow><annotation encoding="application/x-tex">S = \sqrt{p(p-a)(p-b)(p-c)}, p=\frac{a+b+c}{2}
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.05764em;">S</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1.24em;vertical-align:-0.25612499999999994em;"></span><span class="mord sqrt"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.983875em;"><span class="svg-align" style="top:-3.2em;"><span class="pstrut" style="height:3.2em;"></span><span class="mord" style="padding-left:1em;"><span class="mord mathdefault">p</span><span class="mopen">(</span><span class="mord mathdefault">p</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mord mathdefault">a</span><span class="mclose">)</span><span class="mopen">(</span><span class="mord mathdefault">p</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mord mathdefault">b</span><span class="mclose">)</span><span class="mopen">(</span><span class="mord mathdefault">p</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mord mathdefault">c</span><span class="mclose">)</span></span></span><span style="top:-2.9438750000000002em;"><span class="pstrut" style="height:3.2em;"></span><span class="hide-tail" style="min-width:1.02em;height:1.28em;"><svg width='400em' height='1.28em' viewBox='0 0 400000 1296' preserveAspectRatio='xMinYMin slice'><path d='M263,681c0.7,0,18,39.7,52,119c34,79.3,68.167,
+158.7,102.5,238c34.3,79.3,51.8,119.3,52.5,120c340,-704.7,510.7,-1060.3,512,-1067
+c4.7,-7.3,11,-11,19,-11H40000v40H1012.3s-271.3,567,-271.3,567c-38.7,80.7,-84,
+175,-136,283c-52,108,-89.167,185.3,-111.5,232c-22.3,46.7,-33.8,70.3,-34.5,71
+c-4.7,4.7,-12.3,7,-23,7s-12,-1,-12,-1s-109,-253,-109,-253c-72.7,-168,-109.3,
+-252,-110,-252c-10.7,8,-22,16.7,-34,26c-22,17.3,-33.3,26,-34,26s-26,-26,-26,-26
+s76,-59,76,-59s76,-60,76,-60z M1001 80H40000v40H1012z'/></svg></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.25612499999999994em;"><span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault">p</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:2.05744em;vertical-align:-0.686em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.37144em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord">2</span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathdefault">a</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mord mathdefault">b</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mord mathdefault">c</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.686em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span></span></span></p>
+</li>
+<li>
+<p><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>S</mi><mo>=</mo><mfrac><mrow><mi>a</mi><mi>b</mi><mi>s</mi><mi>i</mi><mi>n</mi><mi>C</mi></mrow><mn>2</mn></mfrac></mrow><annotation encoding="application/x-tex">S = \frac{absinC}{2}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.05764em;">S</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1.2251079999999999em;vertical-align:-0.345em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.8801079999999999em;"><span style="top:-2.6550000000000002em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">2</span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.394em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">a</span><span class="mord mathdefault mtight">b</span><span class="mord mathdefault mtight">s</span><span class="mord mathdefault mtight">i</span><span class="mord mathdefault mtight">n</span><span class="mord mathdefault mtight" style="margin-right:0.07153em;">C</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.345em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span></span></p>
+</li>
+</ul>
+<h3 id="42-其他多边形"><a class="markdownIt-Anchor" href="#42-其他多边形"></a> 4.2 其他多边形</h3>
+<h4 id="421-常用函数"><a class="markdownIt-Anchor" href="#421-常用函数"></a> 4.2.1 常用函数</h4>
+<h5 id="4211-点和多边形的关系"><a class="markdownIt-Anchor" href="#4211-点和多边形的关系"></a> 4.2.1.1 点和多边形的关系</h5>
+<figure class="highlight c++"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs C++"><br><span class="hljs-comment">// 3 点上</span><br><span class="hljs-comment">// 2 边上</span><br><span class="hljs-comment">// 1 内部</span><br><span class="hljs-comment">// 0 外部</span><br><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">relationpoint</span><span class="hljs-params">(Point q)</span> </span>&#123;<br>    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; n; ++i) &#123;<br>        <span class="hljs-keyword">if</span> (p[i] == q)<br>            <span class="hljs-keyword">return</span> <span class="hljs-number">3</span>;<br>    &#125;<br>    getline();<br>    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; n; ++i) &#123;<br>        <span class="hljs-keyword">if</span> (l[i].pointonseg(q)) &#123;<br>            <span class="hljs-keyword">return</span> <span class="hljs-number">2</span>;<br>        &#125;<br>    &#125;<br>    <span class="hljs-keyword">int</span> cnt = <span class="hljs-number">0</span>;<br>    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; n; ++i) &#123;<br>        <span class="hljs-keyword">int</span> j = (i + <span class="hljs-number">1</span>) % n;<br>        <span class="hljs-keyword">int</span> k = sgn((q - p[j]) ^ (p[i] - p[j]));<br>        <span class="hljs-keyword">int</span> u = sgn(p[i].y - q.y);<br>        <span class="hljs-keyword">int</span> v = sgn(p[j].y - q.y);<br>        <span class="hljs-keyword">if</span> (k &gt; <span class="hljs-number">0</span> &amp;&amp; u &lt; <span class="hljs-number">0</span> &amp;&amp; v &gt;= <span class="hljs-number">0</span>) cnt++;<br>        <span class="hljs-keyword">if</span> (k &lt; <span class="hljs-number">0</span> &amp;&amp; v &lt; <span class="hljs-number">0</span> &amp;&amp; u &gt;= <span class="hljs-number">0</span>) cnt++;<br>    &#125;<br>    <span class="hljs-keyword">return</span> cnt != <span class="hljs-number">0</span>;<br>&#125;<br><br></code></pre></div></td></tr></table></figure>
+<h5 id="4212-获取周长"><a class="markdownIt-Anchor" href="#4212-获取周长"></a> 4.2.1.2 获取周长</h5>
+<figure class="highlight c++"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs C++"><br><span class="hljs-function">db <span class="hljs-title">getcircumferenct</span><span class="hljs-params">()</span> </span>&#123;<br>    db sum = <span class="hljs-number">0</span>;<br>    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; n; ++i) &#123;<br>        sum += p[i].distance(p[(i + <span class="hljs-number">1</span>) % n]);<br>    &#125;<br>    <span class="hljs-keyword">return</span> sum;<br>&#125;<br><br></code></pre></div></td></tr></table></figure>
+<h5 id="4213-获取面积"><a class="markdownIt-Anchor" href="#4213-获取面积"></a> 4.2.1.3 获取面积</h5>
+<figure class="highlight c++"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs C++"><br><span class="hljs-function">db <span class="hljs-title">getarea</span><span class="hljs-params">()</span> </span>&#123;<br>    db sum = <span class="hljs-number">0</span>;<br>    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; n; ++i) &#123;<br>        sum += (p[i] ^ (p[(i + <span class="hljs-number">1</span>) % n]));<br>    &#125;<br>    <span class="hljs-keyword">return</span> <span class="hljs-built_in">fabs</span>(sum / <span class="hljs-number">2</span>);<br>&#125;<br><br></code></pre></div></td></tr></table></figure>
+<h5 id="4214-获取重心"><a class="markdownIt-Anchor" href="#4214-获取重心"></a> 4.2.1.4 获取重心</h5>
+<figure class="highlight c++"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs C++"><br><span class="hljs-function">Point <span class="hljs-title">getbarycentre</span><span class="hljs-params">()</span> </span>&#123;<br>    Point ret = &#123;<span class="hljs-number">0</span>, <span class="hljs-number">0</span>&#125;;<br>    db area = <span class="hljs-number">0</span>;<br>    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">1</span>; i &lt; n - <span class="hljs-number">1</span>; ++i) &#123;<br>        db tmp = (p[i] - p[<span class="hljs-number">0</span>]) ^(p[i + <span class="hljs-number">1</span>] - p[<span class="hljs-number">0</span>]);<br>        <span class="hljs-keyword">if</span> (sgn(tmp) == <span class="hljs-number">0</span>) <span class="hljs-keyword">continue</span>;<br>        area += tmp;<br>        ret.x += (p[<span class="hljs-number">0</span>].x + p[i].x + p[i + <span class="hljs-number">1</span>].x) / <span class="hljs-number">3</span> * tmp;<br>        ret.y = (p[<span class="hljs-number">0</span>].y + p[i].y + p[i + <span class="hljs-number">1</span>].y) / <span class="hljs-number">3</span> * tmp;<br>    &#125;<br>    <span class="hljs-keyword">if</span> (sgn(area)) ret = ret / area;<br>    <span class="hljs-keyword">return</span> ret;<br>&#125;<br><br></code></pre></div></td></tr></table></figure>
+<h3 id="43-pick定理"><a class="markdownIt-Anchor" href="#43-pick定理"></a> 4.3 Pick定理</h3>
+<h4 id="431-内容"><a class="markdownIt-Anchor" href="#431-内容"></a> 4.3.1 内容</h4>
+<p>皮克定理是指一个计算点阵中顶点在格点上的多边形面积公式该公式可以表示为</p>
+<p><span class="katex-display"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>2</mn><mi>S</mi><mo>=</mo><mn>2</mn><mi>a</mi><mo>+</mo><mi>b</mi><mo>−</mo><mn>2</mn></mrow><annotation encoding="application/x-tex">2S = 2a+b-2
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord">2</span><span class="mord mathdefault" style="margin-right:0.05764em;">S</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.72777em;vertical-align:-0.08333em;"></span><span class="mord">2</span><span class="mord mathdefault">a</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.77777em;vertical-align:-0.08333em;"></span><span class="mord mathdefault">b</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">2</span></span></span></span></span></p>
+<p>其中<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>a</mi></mrow><annotation encoding="application/x-tex">a</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">a</span></span></span></span>表示多边形内部点数，<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>b</mi></mrow><annotation encoding="application/x-tex">b</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathdefault">b</span></span></span></span>表示多边形边界上点数，<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>S</mi></mrow><annotation encoding="application/x-tex">S</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.05764em;">S</span></span></span></span>表示多边形面积</p>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/%E7%9F%A5%E8%AF%86%E7%82%B9/">知识点</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2019/08/07/%E6%94%AF%E9%85%8D%E6%A0%91/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">支配树</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2019/08/06/Multi-University-Training-Contest-5/">
+                        <span class="hidden-mobile">Multi-University-Training-Contest-5</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+              <!-- Comments -->
+              <article class="comments" id="comments">
+                
+                
+  <div id="vcomments"></div>
+  <script type="text/javascript">
+    Fluid.utils.waitElementVisible('vcomments', function() {
+      Fluid.utils.createScript('https://cdn.jsdelivr.net/npm/valine@1.4.14/dist/Valine.min.js', function () {
+        new Valine({
+          el: "#vcomments",
+          app_id: "kCmk4bWtyiEF1TyWkbzRJwoS-gzGzoHsz",
+          app_key: "DyQhYPCkIBEgU0dNSnW90YM4",
+          placeholder: "说点什么",
+          path: window.location.pathname,
+          avatar: "retro",
+          meta: ["nick","mail","link"],
+          pageSize: "10",
+          lang: "zh-CN",
+          highlight: false,
+          recordIP: false,
+          serverURLs: "",
+        });
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the
+    <a target="_blank" href="https://valine.js.org" rel="nofollow noopener noopener">comments powered by Valine.</a>
+  </noscript>
+
+
+              </article>
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://github.com/Hsueh-Xue" target="_blank" rel="nofollow noopener"><span>Hsueh-</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/Hsueh-Xue" target="_blank" rel="nofollow noopener"><span>Github</span></a> 
+  </div>
+  
+  <div class="statistics">
+    
+    
+
+    
+      
+        <!-- 不蒜子统计PV -->
+        <span id="busuanzi_container_site_pv" style="display: none">
+            总访问量 
+            <span id="busuanzi_value_site_pv"></span>
+             次
+          </span>
+      
+      
+        <!-- 不蒜子统计UV -->
+        <span id="busuanzi_container_site_uv" style="display: none">
+            总访客数 
+            <span id="busuanzi_value_site_uv"></span>
+             人
+          </span>
+      
+    
+  </div>
+
+
+  
+  <!-- 备案信息 -->
+  <div class="beian">
+    <span>
+      <a href="http://beian.miit.gov.cn/" target="_blank" rel="nofollow noopener">
+        浙ICP备20005122号-1
+      </a>
+    </span>
+    
+  </div>
+
+
+  
+</footer>
+
+<!-- SCRIPTS -->
+
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":true,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/debouncer.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/tocbot@4.12.0/dist/tocbot.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4.3.0/anchor.min.js" ></script>
+
+
+
+  <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js" ></script>
+
+
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+      typing(title)
+      
+    })(window, document);
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    (function () {
+      var path = "https://cdn.jsdelivr.net/gh/Hsueh-Xue/Hsueh-Xue.github.io@master/local-search.xml";
+      var inputArea = document.querySelector("#local-search-input");
+      inputArea.onclick = function () {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+        this.onclick = null
+      }
+    })()
+  </script>
+
+
+
+
+
+  
+
+  
+    <!-- KaTeX -->
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" />
+  
+
+
+
+
+
+
+
+
+  
+    <!-- Baidu Analytics -->
+    <script defer>
+      var _hmt = _hmt || [];
+      (function () {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?d41ced546e0d98131079f76f87dd8046";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+      })();
+    </script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+
+</body>
+</html>

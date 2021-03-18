@@ -1,0 +1,600 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=&#34;auto&#34;>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="https://cdn.jsdelivr.net/gh/Hsueh-Xue/Hsueh-Xue.github.io@master/img/favicon.png">
+  <link rel="icon" type="image/png" href="https://cdn.jsdelivr.net/gh/Hsueh-Xue/Hsueh-Xue.github.io@master/img/favicon.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="">
+  <meta name="author" content="Hsueh">
+  <meta name="keywords" content="">
+  <title>Codeforces Round 608 (Div. 2) - Hsueh&#39; blog</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Hsueh-Xue/Hsueh-Xue.github.io@master/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.4.0/styles/github-gist.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+  
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"blog.hsueh.club","root":"/","version":"1.8.7","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":true},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":true,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"onlypost":false},"web_analytics":{"enable":true,"baidu":"d41ced546e0d98131079f76f87dd8046","google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}}};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.3.0"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>Hsueh's blog</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/">
+                <i class="iconfont icon-link-fill"></i>
+                友链
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" href="javascript:">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('https://cdn.jsdelivr.net/gh/Hsueh-Xue/Hsueh-Xue.github.io@master/img/default.png') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="Codeforces Round 608 (Div. 2)">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-author" aria-hidden="true"></i>
+      Hsueh
+    </span>
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2020-02-11 11:10" pubdate>
+        星期二, 二月 11日 2020, 11:10 上午
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      2.3k 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      39
+       分钟
+    </span>
+  
+
+  
+  
+    
+      <!-- 不蒜子统计文章PV -->
+      <span id="busuanzi_container_page_pv" style="display: none">
+        <i class="iconfont icon-eye" aria-hidden="true"></i>
+        <span id="busuanzi_value_page_pv"></span> 次
+      </span>
+    
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">Codeforces Round 608 (Div. 2)</h1>
+            
+              <p class="note note-info">
+                
+                  本文最后更新于：星期二, 四月 28日 2020, 5:02 下午
+                
+              </p>
+            
+            <div class="markdown-body">
+              <h2 id="a-suits"><a class="markdownIt-Anchor" href="#a-suits"></a> A. Suits</h2>
+<p>水</p>
+<figure class="highlight c++"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs C++"><br><span class="hljs-comment">/*</span><br><span class="hljs-comment"> *</span><br><span class="hljs-comment"> * Author: Hsueh-</span><br><span class="hljs-comment"> * Date: 2020-02-11 10:15:51</span><br><span class="hljs-comment"> *</span><br><span class="hljs-comment"> * */</span><br><br><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;bits/stdc++.h&gt;</span></span><br><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> <span class="hljs-built_in">std</span>;<br><br><span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> dbg(x...)             \</span><br>    <span class="hljs-keyword">do</span> &#123;                      \<br>        <span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-meta">#x <span class="hljs-meta-string">&lt;&lt; &quot; -&gt; &quot;; \</span></span><br>        err(x);               \<br>    &#125; <span class="hljs-keyword">while</span> (<span class="hljs-number">0</span>)<br><br><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">err</span><span class="hljs-params">()</span> </span>&#123;<br>    <span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-built_in">endl</span>;<br>&#125;<br><br><span class="hljs-keyword">template</span> &lt;<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">T</span>, <span class="hljs-title">class</span>... <span class="hljs-title">Ts</span>&gt;</span><br><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">err</span><span class="hljs-params">(<span class="hljs-keyword">const</span> T&amp; arg, <span class="hljs-keyword">const</span> Ts&amp;... args)</span> </span>&#123;<br>    <span class="hljs-built_in">cout</span> &lt;&lt; arg &lt;&lt; <span class="hljs-string">&#x27; &#x27;</span>;<br>    err(args...);<br>&#125;<br><br><span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> endl <span class="hljs-meta-string">&quot;\n&quot;</span></span><br><span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> all(A) A.begin(), A.end()</span><br><span class="hljs-keyword">using</span> pII = <span class="hljs-built_in">pair</span>&lt;<span class="hljs-keyword">int</span>, <span class="hljs-keyword">int</span>&gt;;<br><span class="hljs-keyword">using</span> ll = <span class="hljs-keyword">long</span> <span class="hljs-keyword">long</span>;<br><span class="hljs-keyword">using</span> db = <span class="hljs-keyword">double</span>;<br><br><span class="hljs-keyword">const</span> <span class="hljs-keyword">int</span> INF = <span class="hljs-number">0x3f3f3f3f</span>;<br><span class="hljs-keyword">const</span> ll INFLL = <span class="hljs-number">0x3f3f3f3f3f3f3f3f</span>;<br><span class="hljs-keyword">const</span> <span class="hljs-keyword">int</span> N = <span class="hljs-number">2e5</span> + <span class="hljs-number">10</span>;<br><br><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">gao1</span><span class="hljs-params">(<span class="hljs-keyword">int</span> a, <span class="hljs-keyword">int</span> b, <span class="hljs-keyword">int</span> c, <span class="hljs-keyword">int</span> d, <span class="hljs-keyword">int</span> e, <span class="hljs-keyword">int</span> f)</span> </span>&#123;<br>    <span class="hljs-keyword">int</span> res = <span class="hljs-number">0</span>;<br>    res += min(a, d) * e;<br>    d -= min(a, d);<br>    res += min(b, min(c, d)) * f;<br>    <span class="hljs-keyword">return</span> res;<br>&#125;<br><br><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">gao2</span><span class="hljs-params">(<span class="hljs-keyword">int</span> a, <span class="hljs-keyword">int</span> b, <span class="hljs-keyword">int</span> c, <span class="hljs-keyword">int</span> d, <span class="hljs-keyword">int</span> e, <span class="hljs-keyword">int</span> f)</span> </span>&#123;<br>    <span class="hljs-keyword">int</span> res = <span class="hljs-number">0</span>;<br>    res += min(b, min(c, d)) * f;<br>    d -= min(b, min(c, d));<br>    res += min(a, d) * e;<br>    <span class="hljs-keyword">return</span> res;<br>&#125;<br><br><span class="hljs-keyword">int</span> a, b, c, d, e, f;<br><br><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">RUN</span><span class="hljs-params">()</span> </span>&#123;<br>    <span class="hljs-built_in">cin</span> &gt;&gt; a &gt;&gt; b &gt;&gt; c &gt;&gt; d &gt;&gt; e &gt;&gt; f;<br>    <span class="hljs-built_in">cout</span> &lt;&lt; max(gao1(a, b, c, d, e, f), gao2(a, b, c, d, e, f)) &lt;&lt; <span class="hljs-built_in">endl</span>;<br>&#125;<br><br><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> </span>&#123;<br>    ios::sync_with_stdio(<span class="hljs-literal">false</span>);<br>    <span class="hljs-built_in">cin</span>.tie(<span class="hljs-literal">nullptr</span>), <span class="hljs-built_in">cout</span>.tie(<span class="hljs-literal">nullptr</span>);<br>    <span class="hljs-built_in">cout</span> &lt;&lt; fixed &lt;&lt; setprecision(<span class="hljs-number">20</span>);<br><br>    RUN();<br>    <br>    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br><br></code></pre></div></td></tr></table></figure>
+<h2 id="b-blocks"><a class="markdownIt-Anchor" href="#b-blocks"></a> B. Blocks</h2>
+<p>题意：</p>
+<p>给一个01串，每次可以将<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>i</mi><mo separator="true">,</mo><mi>i</mi><mo>+</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">i, i+1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.85396em;vertical-align:-0.19444em;"></span><span class="mord mathdefault">i</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault">i</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span></span></span></span>翻转，问能否将其翻转成为全黑全白，输出方案（方案次数<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>≤</mo><mn>3</mn><mo>⋅</mo><mi>n</mi></mrow><annotation encoding="application/x-tex">\leq 3\cdot n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7719400000000001em;vertical-align:-0.13597em;"></span><span class="mrel">≤</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">3</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">⋅</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">n</span></span></span></span>）</p>
+<p>思路：</p>
+<p>尝试全黑和全白，暴力翻转</p>
+<figure class="highlight c++"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs C++"><br><span class="hljs-comment">/*</span><br><span class="hljs-comment"> *</span><br><span class="hljs-comment"> * Author: Hsueh-</span><br><span class="hljs-comment"> * Date: 2020-02-11 10:21:13</span><br><span class="hljs-comment"> *</span><br><span class="hljs-comment"> * */</span><br><br><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;bits/stdc++.h&gt;</span></span><br><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> <span class="hljs-built_in">std</span>;<br><br><span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> dbg(x...)             \</span><br>    <span class="hljs-keyword">do</span> &#123;                      \<br>        <span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-meta">#x <span class="hljs-meta-string">&lt;&lt; &quot; -&gt; &quot;; \</span></span><br>        err(x);               \<br>    &#125; <span class="hljs-keyword">while</span> (<span class="hljs-number">0</span>)<br><br><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">err</span><span class="hljs-params">()</span> </span>&#123;<br>    <span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-built_in">endl</span>;<br>&#125;<br><br><span class="hljs-keyword">template</span> &lt;<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">T</span>, <span class="hljs-title">class</span>... <span class="hljs-title">Ts</span>&gt;</span><br><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">err</span><span class="hljs-params">(<span class="hljs-keyword">const</span> T&amp; arg, <span class="hljs-keyword">const</span> Ts&amp;... args)</span> </span>&#123;<br>    <span class="hljs-built_in">cout</span> &lt;&lt; arg &lt;&lt; <span class="hljs-string">&#x27; &#x27;</span>;<br>    err(args...);<br>&#125;<br><br><span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> endl <span class="hljs-meta-string">&quot;\n&quot;</span></span><br><span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> all(A) A.begin(), A.end()</span><br><span class="hljs-keyword">using</span> pII = <span class="hljs-built_in">pair</span>&lt;<span class="hljs-keyword">int</span>, <span class="hljs-keyword">int</span>&gt;;<br><span class="hljs-keyword">using</span> ll = <span class="hljs-keyword">long</span> <span class="hljs-keyword">long</span>;<br><span class="hljs-keyword">using</span> db = <span class="hljs-keyword">double</span>;<br><br><span class="hljs-keyword">const</span> <span class="hljs-keyword">int</span> INF = <span class="hljs-number">0x3f3f3f3f</span>;<br><span class="hljs-keyword">const</span> ll INFLL = <span class="hljs-number">0x3f3f3f3f3f3f3f3f</span>;<br><span class="hljs-keyword">const</span> <span class="hljs-keyword">int</span> N = <span class="hljs-number">2e5</span> + <span class="hljs-number">10</span>;<br><br><span class="hljs-keyword">int</span> n, a[N];<br><span class="hljs-keyword">char</span> s[N];<br><span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt; res;<br><br><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">RUN</span><span class="hljs-params">()</span> </span>&#123;<br>    <span class="hljs-built_in">cin</span> &gt;&gt; n;<br>    <span class="hljs-built_in">cin</span> &gt;&gt; (s + <span class="hljs-number">1</span>);<br>    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">1</span>; i &lt;= n; ++i) &#123;<br>        <span class="hljs-keyword">if</span> (s[i] == <span class="hljs-string">&#x27;W&#x27;</span>)<br>            a[i] = <span class="hljs-number">0</span>;<br>        <span class="hljs-keyword">else</span><br>            a[i] = <span class="hljs-number">1</span>;<br>    &#125;<br>    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">1</span>; i &lt; n; ++i) &#123;<br>        <span class="hljs-keyword">if</span> (!a[i]) &#123;<br>            a[i] ^= <span class="hljs-number">1</span>, a[i + <span class="hljs-number">1</span>] ^= <span class="hljs-number">1</span>;<br>            res.push_back(i);<br>        &#125;<br>    &#125;<br>    <span class="hljs-keyword">if</span> (a[n]) &#123;<br>        <span class="hljs-built_in">cout</span> &lt;&lt; res.size() &lt;&lt; <span class="hljs-built_in">endl</span>;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>, len = res.size(); i &lt; len; ++i) &#123;<br>            <span class="hljs-built_in">cout</span> &lt;&lt; res[i] &lt;&lt; <span class="hljs-string">&quot; \n&quot;</span>[i==len - <span class="hljs-number">1</span>];<br>        &#125;<br>        <span class="hljs-keyword">return</span>;<br>    &#125;<br>    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">1</span>; i &lt; n; ++i) &#123;<br>        <span class="hljs-keyword">if</span> (a[i]) &#123;<br>            a[i] ^= <span class="hljs-number">1</span>, a[i + <span class="hljs-number">1</span>] ^= <span class="hljs-number">1</span>;<br>            res.push_back(i);<br>        &#125;<br>    &#125;<br>    <span class="hljs-keyword">if</span> (!a[n]) &#123;<br>        <span class="hljs-built_in">cout</span> &lt;&lt; res.size() &lt;&lt; <span class="hljs-built_in">endl</span>;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>, len = res.size(); i &lt; len; ++i) &#123;<br>            <span class="hljs-built_in">cout</span> &lt;&lt; res[i] &lt;&lt; <span class="hljs-string">&quot; \n&quot;</span>[i == len - <span class="hljs-number">1</span>];<br>        &#125;<br>        <span class="hljs-keyword">return</span>;<br>    &#125;<br>    <span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-number">-1</span> &lt;&lt; <span class="hljs-built_in">endl</span>;<br>&#125;<br><br><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> </span>&#123;<br>    ios::sync_with_stdio(<span class="hljs-literal">false</span>);<br>    <span class="hljs-built_in">cin</span>.tie(<span class="hljs-literal">nullptr</span>), <span class="hljs-built_in">cout</span>.tie(<span class="hljs-literal">nullptr</span>);<br>    <span class="hljs-built_in">cout</span> &lt;&lt; fixed &lt;&lt; setprecision(<span class="hljs-number">20</span>);<br><br>    RUN();<br>    <br>    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br><br></code></pre></div></td></tr></table></figure>
+<h2 id="c-shawarma-tent"><a class="markdownIt-Anchor" href="#c-shawarma-tent"></a> C. Shawarma Tent</h2>
+<p>题意：</p>
+<p>有一个学校在<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo stretchy="false">(</mo><mi>s</mi><mi>x</mi><mo separator="true">,</mo><mi>s</mi><mi>y</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">(sx,sy)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord mathdefault">s</span><span class="mord mathdefault">x</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault">s</span><span class="mord mathdefault" style="margin-right:0.03588em;">y</span><span class="mclose">)</span></span></span></span>位置，有<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>n</mi></mrow><annotation encoding="application/x-tex">n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">n</span></span></span></span>个学生，每个人家的坐标在<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo stretchy="false">(</mo><msub><mi>x</mi><mi>i</mi></msub><mo separator="true">,</mo><msub><mi>y</mi><mi>i</mi></msub><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">(x_i,y_i)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord"><span class="mord mathdefault">x</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.03588em;">y</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:-0.03588em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mclose">)</span></span></span></span></p>
+<p>现在想要开一个$shawarma <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi mathvariant="normal">，</mi><mi mathvariant="normal">如</mi><mi mathvariant="normal">果</mi><mi mathvariant="normal">这</mi><mi mathvariant="normal">个</mi><mi mathvariant="normal">学</mi><mi mathvariant="normal">生</mi><mi mathvariant="normal">可</mi><mi mathvariant="normal">以</mi><mi mathvariant="normal">经</mi><mi mathvariant="normal">过</mi></mrow><annotation encoding="application/x-tex">，如果这个学生可以经过</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0em;vertical-align:0em;"></span><span class="mord cjk_fallback">，</span><span class="mord cjk_fallback">如</span><span class="mord cjk_fallback">果</span><span class="mord cjk_fallback">这</span><span class="mord cjk_fallback">个</span><span class="mord cjk_fallback">学</span><span class="mord cjk_fallback">生</span><span class="mord cjk_fallback">可</span><span class="mord cjk_fallback">以</span><span class="mord cjk_fallback">经</span><span class="mord cjk_fallback">过</span></span></span></span>shawarma <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi mathvariant="normal">后</mi><mi mathvariant="normal">到</mi><mi mathvariant="normal">达</mi><mi mathvariant="normal">学</mi><mi mathvariant="normal">校</mi><mi mathvariant="normal">依</mi><mi mathvariant="normal">旧</mi><mi mathvariant="normal">是</mi><mi mathvariant="normal">最</mi><mi mathvariant="normal">短</mi><mi mathvariant="normal">距</mi><mi mathvariant="normal">离</mi><mi mathvariant="normal">，</mi><mi mathvariant="normal">那</mi><mi mathvariant="normal">么</mi><mi mathvariant="normal">认</mi><mi mathvariant="normal">定</mi><mi mathvariant="normal">这</mi><mi mathvariant="normal">个</mi><mi mathvariant="normal">学</mi><mi mathvariant="normal">生</mi><mi mathvariant="normal">给</mi></mrow><annotation encoding="application/x-tex">后到达学校依旧是最短距离，那么认定这个学生给</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0em;vertical-align:0em;"></span><span class="mord cjk_fallback">后</span><span class="mord cjk_fallback">到</span><span class="mord cjk_fallback">达</span><span class="mord cjk_fallback">学</span><span class="mord cjk_fallback">校</span><span class="mord cjk_fallback">依</span><span class="mord cjk_fallback">旧</span><span class="mord cjk_fallback">是</span><span class="mord cjk_fallback">最</span><span class="mord cjk_fallback">短</span><span class="mord cjk_fallback">距</span><span class="mord cjk_fallback">离</span><span class="mord cjk_fallback">，</span><span class="mord cjk_fallback">那</span><span class="mord cjk_fallback">么</span><span class="mord cjk_fallback">认</span><span class="mord cjk_fallback">定</span><span class="mord cjk_fallback">这</span><span class="mord cjk_fallback">个</span><span class="mord cjk_fallback">学</span><span class="mord cjk_fallback">生</span><span class="mord cjk_fallback">给</span></span></span></span>shawarma $带来贡献</p>
+<p>求最大的贡献值和坐标</p>
+<p>思路：</p>
+<p>很显然把$shawarma <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi mathvariant="normal">开</mi><mi mathvariant="normal">在</mi><mi mathvariant="normal">学</mi><mi mathvariant="normal">校</mi><mi mathvariant="normal">的</mi><mi mathvariant="normal">上</mi><mi mathvariant="normal">下</mi><mi mathvariant="normal">左</mi><mi mathvariant="normal">右</mi><mi mathvariant="normal">是</mi><mi mathvariant="normal">最</mi><mi mathvariant="normal">优</mi><mi mathvariant="normal">的</mi><mi mathvariant="normal">，</mi><mi mathvariant="normal">暴</mi><mi mathvariant="normal">力</mi><mi mathvariant="normal">算</mi><mi mathvariant="normal">一</mi><mi mathvariant="normal">遍</mi><mi mathvariant="normal">取</mi></mrow><annotation encoding="application/x-tex">开在学校的上下左右是最优的，暴力算一遍取</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0em;vertical-align:0em;"></span><span class="mord cjk_fallback">开</span><span class="mord cjk_fallback">在</span><span class="mord cjk_fallback">学</span><span class="mord cjk_fallback">校</span><span class="mord cjk_fallback">的</span><span class="mord cjk_fallback">上</span><span class="mord cjk_fallback">下</span><span class="mord cjk_fallback">左</span><span class="mord cjk_fallback">右</span><span class="mord cjk_fallback">是</span><span class="mord cjk_fallback">最</span><span class="mord cjk_fallback">优</span><span class="mord cjk_fallback">的</span><span class="mord cjk_fallback">，</span><span class="mord cjk_fallback">暴</span><span class="mord cjk_fallback">力</span><span class="mord cjk_fallback">算</span><span class="mord cjk_fallback">一</span><span class="mord cjk_fallback">遍</span><span class="mord cjk_fallback">取</span></span></span></span>max$即可</p>
+<figure class="highlight c++"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs C++"><br><span class="hljs-comment">/*</span><br><span class="hljs-comment"> *</span><br><span class="hljs-comment"> * Author: Hsueh-</span><br><span class="hljs-comment"> * Date: 2020-02-11 10:29:54</span><br><span class="hljs-comment"> *</span><br><span class="hljs-comment"> * */</span><br><br><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;bits/stdc++.h&gt;</span></span><br><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> <span class="hljs-built_in">std</span>;<br><br><span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> dbg(x...)             \</span><br>    <span class="hljs-keyword">do</span> &#123;                      \<br>        <span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-meta">#x <span class="hljs-meta-string">&lt;&lt; &quot; -&gt; &quot;; \</span></span><br>        err(x);               \<br>    &#125; <span class="hljs-keyword">while</span> (<span class="hljs-number">0</span>)<br><br><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">err</span><span class="hljs-params">()</span> </span>&#123;<br>    <span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-built_in">endl</span>;<br>&#125;<br><br><span class="hljs-keyword">template</span> &lt;<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">T</span>, <span class="hljs-title">class</span>... <span class="hljs-title">Ts</span>&gt;</span><br><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">err</span><span class="hljs-params">(<span class="hljs-keyword">const</span> T&amp; arg, <span class="hljs-keyword">const</span> Ts&amp;... args)</span> </span>&#123;<br>    <span class="hljs-built_in">cout</span> &lt;&lt; arg &lt;&lt; <span class="hljs-string">&#x27; &#x27;</span>;<br>    err(args...);<br>&#125;<br><br><span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> endl <span class="hljs-meta-string">&quot;\n&quot;</span></span><br><span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> all(A) A.begin(), A.end()</span><br><span class="hljs-keyword">using</span> pII = <span class="hljs-built_in">pair</span>&lt;<span class="hljs-keyword">int</span>, <span class="hljs-keyword">int</span>&gt;;<br><span class="hljs-keyword">using</span> ll = <span class="hljs-keyword">long</span> <span class="hljs-keyword">long</span>;<br><span class="hljs-keyword">using</span> db = <span class="hljs-keyword">double</span>;<br><br><span class="hljs-keyword">const</span> <span class="hljs-keyword">int</span> INF = <span class="hljs-number">0x3f3f3f3f</span>;<br><span class="hljs-keyword">const</span> ll INFLL = <span class="hljs-number">0x3f3f3f3f3f3f3f3f</span>;<br><span class="hljs-keyword">const</span> <span class="hljs-keyword">int</span> N = <span class="hljs-number">2e5</span> + <span class="hljs-number">10</span>;<br><br><span class="hljs-keyword">int</span> n, sx, sy;<br><span class="hljs-keyword">int</span> x[N], y[N];<br><span class="hljs-keyword">int</span> dir[<span class="hljs-number">4</span>][<span class="hljs-number">2</span>] = &#123;<span class="hljs-number">1</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">-1</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">-1</span>&#125;;<br><br><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">RUN</span><span class="hljs-params">()</span> </span>&#123;<br>    <span class="hljs-built_in">cin</span> &gt;&gt; n &gt;&gt; sx &gt;&gt; sy;<br>    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">1</span>; i &lt;= n; ++i) &#123;<br>        <span class="hljs-built_in">cin</span> &gt;&gt; x[i] &gt;&gt; y[i];<br>    &#125;<br>    <span class="hljs-keyword">int</span> Max = <span class="hljs-number">-1</span>, _x = <span class="hljs-number">0</span>, _y = <span class="hljs-number">0</span>;<br>    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; <span class="hljs-number">4</span>; ++i) &#123;<br>        <span class="hljs-keyword">int</span> ex = sx + dir[i][<span class="hljs-number">0</span>], ey = sy + dir[i][<span class="hljs-number">1</span>];<br>        <span class="hljs-keyword">int</span> cnt = <span class="hljs-number">0</span>;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">1</span>; i &lt;= n; ++i) &#123;<br>            <span class="hljs-keyword">if</span> (<span class="hljs-built_in">abs</span>(x[i] - sx) + <span class="hljs-built_in">abs</span>(y[i] - sy) ==<br>                <span class="hljs-built_in">abs</span>(x[i] - ex) + <span class="hljs-built_in">abs</span>(y[i] - ey) + <span class="hljs-number">1</span>) &#123;<br>                ++cnt;<br>            &#125;<br>        &#125;<br>        <span class="hljs-keyword">if</span> (cnt &gt; Max) &#123;<br>            Max = cnt, _x = ex, _y = ey;<br>        &#125;<br>    &#125;<br>    <span class="hljs-built_in">cout</span> &lt;&lt; Max &lt;&lt; <span class="hljs-built_in">endl</span>;<br>    <span class="hljs-built_in">cout</span> &lt;&lt; _x &lt;&lt; <span class="hljs-string">&quot; &quot;</span> &lt;&lt; _y &lt;&lt; <span class="hljs-built_in">endl</span>;<br>&#125;<br><br><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> </span>&#123;<br>    ios::sync_with_stdio(<span class="hljs-literal">false</span>);<br>    <span class="hljs-built_in">cin</span>.tie(<span class="hljs-literal">nullptr</span>), <span class="hljs-built_in">cout</span>.tie(<span class="hljs-literal">nullptr</span>);<br>    <span class="hljs-built_in">cout</span> &lt;&lt; fixed &lt;&lt; setprecision(<span class="hljs-number">20</span>);<br><br>    RUN();<br>    <br>    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br><br></code></pre></div></td></tr></table></figure>
+<h2 id="d-portals"><a class="markdownIt-Anchor" href="#d-portals"></a> D. Portals</h2>
+<p>题意：</p>
+<p>有<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>n</mi></mrow><annotation encoding="application/x-tex">n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">n</span></span></span></span>个城堡，刚开始你有<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>k</mi></mrow><annotation encoding="application/x-tex">k</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.03148em;">k</span></span></span></span>个军队，有<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>m</mi></mrow><annotation encoding="application/x-tex">m</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">m</span></span></span></span>条路径</p>
+<p>你现在按照<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>1</mn><mo>−</mo><mi>n</mi></mrow><annotation encoding="application/x-tex">1 - n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.72777em;vertical-align:-0.08333em;"></span><span class="mord">1</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">n</span></span></span></span>的顺序攻打城堡</p>
+<p>每个城堡你需要至少<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>a</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">a_i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.58056em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault">a</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>个军队，但是攻打城堡不耗费军队，攻打后你可以招<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>b</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">b_i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.84444em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault">b</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>个军队，同时每个城堡有<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>c</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">c_i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.58056em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault">c</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>的重要性</p>
+<p>当你派至少一个军队留在城堡的时候算占领</p>
+<p>占领只有当你刚攻打城堡的时候可以占领或者通过<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>m</mi></mrow><annotation encoding="application/x-tex">m</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">m</span></span></span></span>条路径占领</p>
+<p><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>m</mi></mrow><annotation encoding="application/x-tex">m</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">m</span></span></span></span>条有向路径，<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>u</mi><mo>&gt;</mo><mi>v</mi></mrow><annotation encoding="application/x-tex">u&gt;v</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.5782em;vertical-align:-0.0391em;"></span><span class="mord mathdefault">u</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">&gt;</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.03588em;">v</span></span></span></span></p>
+<p>问最后占领的城堡的最大重要性</p>
+<p>如果不能攻打所有城堡输出<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>−</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">-1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.72777em;vertical-align:-0.08333em;"></span><span class="mord">−</span><span class="mord">1</span></span></span></span></p>
+<p>思路：</p>
+<p>首先判断<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>−</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">-1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.72777em;vertical-align:-0.08333em;"></span><span class="mord">−</span><span class="mord">1</span></span></span></span></p>
+<p>其次对每个城堡维护一个<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>M</mi><mi>a</mi><msub><mi>x</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">Max_i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.83333em;vertical-align:-0.15em;"></span><span class="mord mathdefault" style="margin-right:0.10903em;">M</span><span class="mord mathdefault">a</span><span class="mord"><span class="mord mathdefault">x</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>，表示最远的可以通过路径可以占领的城堡下标</p>
+<p>对每个城堡按照<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo stretchy="false">(</mo><msub><mi>c</mi><mi>i</mi></msub><mo separator="true">,</mo><mi>i</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">(c_i,i)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord"><span class="mord mathdefault">c</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault">i</span><span class="mclose">)</span></span></span></span>排序，一个城堡的重要性有价值只有<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>M</mi><mi>a</mi><msub><mi>x</mi><mi>i</mi></msub><mo>+</mo><mn>1</mn><mo>−</mo><mi>n</mi></mrow><annotation encoding="application/x-tex">Max_i+1-n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.83333em;vertical-align:-0.15em;"></span><span class="mord mathdefault" style="margin-right:0.10903em;">M</span><span class="mord mathdefault">a</span><span class="mord"><span class="mord mathdefault">x</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.72777em;vertical-align:-0.08333em;"></span><span class="mord">1</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">n</span></span></span></span>的城堡在少一个士兵的情况下依旧可以攻打，然后贪心即可</p>
+<figure class="highlight c++"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs C++"><br><span class="hljs-comment">/*</span><br><span class="hljs-comment"> *</span><br><span class="hljs-comment"> * Author: Hsueh-</span><br><span class="hljs-comment"> * Date: 2020-02-11 10:35:29</span><br><span class="hljs-comment"> *</span><br><span class="hljs-comment"> * */</span><br><br><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;bits/stdc++.h&gt;</span></span><br><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> <span class="hljs-built_in">std</span>;<br><br><span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> dbg(x...)             \</span><br>    <span class="hljs-keyword">do</span> &#123;                      \<br>        <span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-meta">#x <span class="hljs-meta-string">&lt;&lt; &quot; -&gt; &quot;; \</span></span><br>        err(x);               \<br>    &#125; <span class="hljs-keyword">while</span> (<span class="hljs-number">0</span>)<br><br><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">err</span><span class="hljs-params">()</span> </span>&#123;<br>    <span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-built_in">endl</span>;<br>&#125;<br><br><span class="hljs-keyword">template</span> &lt;<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">T</span>, <span class="hljs-title">class</span>... <span class="hljs-title">Ts</span>&gt;</span><br><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">err</span><span class="hljs-params">(<span class="hljs-keyword">const</span> T&amp; arg, <span class="hljs-keyword">const</span> Ts&amp;... args)</span> </span>&#123;<br>    <span class="hljs-built_in">cout</span> &lt;&lt; arg &lt;&lt; <span class="hljs-string">&#x27; &#x27;</span>;<br>    err(args...);<br>&#125;<br><br><span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> endl <span class="hljs-meta-string">&quot;\n&quot;</span></span><br><span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> all(A) A.begin(), A.end()</span><br><span class="hljs-keyword">using</span> pII = <span class="hljs-built_in">pair</span>&lt;<span class="hljs-keyword">int</span>, <span class="hljs-keyword">int</span>&gt;;<br><span class="hljs-keyword">using</span> ll = <span class="hljs-keyword">long</span> <span class="hljs-keyword">long</span>;<br><span class="hljs-keyword">using</span> db = <span class="hljs-keyword">double</span>;<br><br><span class="hljs-keyword">const</span> <span class="hljs-keyword">int</span> INF = <span class="hljs-number">0x3f3f3f3f</span>;<br><span class="hljs-keyword">const</span> ll INFLL = <span class="hljs-number">0x3f3f3f3f3f3f3f3f</span>;<br><span class="hljs-keyword">const</span> <span class="hljs-keyword">int</span> N = <span class="hljs-number">2e5</span> + <span class="hljs-number">10</span>;<br><br><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">node</span> &#123;</span><br>    <span class="hljs-keyword">int</span> a, b, c;<br><br>    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">input</span><span class="hljs-params">()</span> </span>&#123; <span class="hljs-built_in">cin</span> &gt;&gt; a &gt;&gt; b &gt;&gt; c; &#125;<br>&#125; a[N];<br><br><span class="hljs-keyword">int</span> n, m, k;<br><span class="hljs-keyword">int</span> Max[N], remind[N];<br><br><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">RUN</span><span class="hljs-params">()</span> </span>&#123;<br>    <span class="hljs-built_in">cin</span> &gt;&gt; n &gt;&gt; m &gt;&gt; k;<br>    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">1</span>; i &lt;= n; ++i) &#123;<br>        a[i].input();<br>        Max[i] = i;<br>    &#125;<br>    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">1</span>, u, v; i &lt;= m; ++i) &#123;<br>        <span class="hljs-built_in">cin</span> &gt;&gt; u &gt;&gt; v;<br>        Max[v] = max(Max[v], u);<br>    &#125;<br>    remind[<span class="hljs-number">1</span>] = k;<br>    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">1</span>; i &lt;= n; ++i) &#123;<br>        <span class="hljs-keyword">if</span> (remind[i] &lt; a[i].a) &#123;<br>            <span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;-1&quot;</span> &lt;&lt; <span class="hljs-built_in">endl</span>;<br>            <span class="hljs-keyword">return</span>;<br>        &#125;<br>        remind[i + <span class="hljs-number">1</span>] = remind[i] + a[i].b;<br>    &#125;<br>    <span class="hljs-built_in">priority_queue</span>&lt;pII&gt; pq;<br>    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">1</span>; i &lt;= n; ++i) &#123;<br>        pq.push(pII(a[i].c, i));<br>    &#125;<br>    <span class="hljs-keyword">int</span> res = <span class="hljs-number">0</span>;<br>    <span class="hljs-keyword">while</span> (!pq.empty()) &#123;<br>        pII t = pq.top();<br>        pq.pop();<br>        <span class="hljs-keyword">bool</span> F = <span class="hljs-literal">true</span>;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = Max[t.second] + <span class="hljs-number">1</span>; i &lt;= n + <span class="hljs-number">1</span>; ++i) &#123;<br>            <span class="hljs-keyword">if</span> (remind[i] - <span class="hljs-number">1</span> &lt; a[i].a) &#123;<br>                F = <span class="hljs-literal">false</span>;<br>                <span class="hljs-keyword">break</span>;<br>            &#125;<br>        &#125;<br>        <span class="hljs-keyword">if</span> (F) &#123;<br>            res += t.first;<br>            <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = Max[t.second] + <span class="hljs-number">1</span>; i &lt;= n + <span class="hljs-number">1</span>; ++i) &#123;<br>                remind[i]--;<br>            &#125;<br>        &#125;<br>    &#125;<br>    <span class="hljs-built_in">cout</span> &lt;&lt; res &lt;&lt; <span class="hljs-built_in">endl</span>;<br>&#125;<br><br><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> </span>&#123;<br>    ios::sync_with_stdio(<span class="hljs-literal">false</span>);<br>    <span class="hljs-built_in">cin</span>.tie(<span class="hljs-literal">nullptr</span>), <span class="hljs-built_in">cout</span>.tie(<span class="hljs-literal">nullptr</span>);<br>    <span class="hljs-built_in">cout</span> &lt;&lt; fixed &lt;&lt; setprecision(<span class="hljs-number">20</span>);<br><br>    RUN();<br>    <br>    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br><br></code></pre></div></td></tr></table></figure>
+<h2 id="e-common-number"><a class="markdownIt-Anchor" href="#e-common-number"></a> E. Common Number</h2>
+<p>题意：</p>
+<p>定义</p>
+f(x)=
+\begin{equation}  
+\left\{  
+             \begin{array}{**lr**}  
+             \frac{x}{2}  \quad & if \; x \; is \; even \\
+             x-1 \quad & otherwise
+             \end{array}  
+\right.  
+\end{equation}  
+
+<p>定义<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>p</mi><mi>a</mi><mi>t</mi><mi>h</mi><mo stretchy="false">{</mo><mi>x</mi><mo stretchy="false">}</mo></mrow><annotation encoding="application/x-tex">path\{x\}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault">p</span><span class="mord mathdefault">a</span><span class="mord mathdefault">t</span><span class="mord mathdefault">h</span><span class="mopen">{</span><span class="mord mathdefault">x</span><span class="mclose">}</span></span></span></span>为通过一系列计算得到的结果</p>
+<p>求最大的<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>y</mi></mrow><annotation encoding="application/x-tex">y</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="mord mathdefault" style="margin-right:0.03588em;">y</span></span></span></span>满足<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi mathvariant="normal">∣</mi><mo stretchy="false">{</mo><mi>x</mi><mi mathvariant="normal">∣</mi><mn>1</mn><mo>≤</mo><mi>x</mi><mo>≤</mo><mi>n</mi><mo separator="true">,</mo><mi>y</mi><mo>∈</mo><mi>p</mi><mi>a</mi><mi>t</mi><mi>h</mi><mo stretchy="false">{</mo><mi>x</mi><mo stretchy="false">}</mo><mi mathvariant="normal">∣</mi><mo>≥</mo><mi>k</mi></mrow><annotation encoding="application/x-tex">|\{x|1\leq x \leq n, y \in path\{x\}|\geq k</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">∣</span><span class="mopen">{</span><span class="mord mathdefault">x</span><span class="mord">∣</span><span class="mord">1</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">≤</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.7719400000000001em;vertical-align:-0.13597em;"></span><span class="mord mathdefault">x</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">≤</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.7335400000000001em;vertical-align:-0.19444em;"></span><span class="mord mathdefault">n</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault" style="margin-right:0.03588em;">y</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">∈</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault">p</span><span class="mord mathdefault">a</span><span class="mord mathdefault">t</span><span class="mord mathdefault">h</span><span class="mopen">{</span><span class="mord mathdefault">x</span><span class="mclose">}</span><span class="mord">∣</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">≥</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.03148em;">k</span></span></span></span></p>
+<p>思路：</p>
+<p>很显然这是一棵树</p>
+<p>其中<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>2</mn><mi>x</mi></mrow><annotation encoding="application/x-tex">2x</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">2</span><span class="mord mathdefault">x</span></span></span></span>的父亲是<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>x</mi></mrow><annotation encoding="application/x-tex">x</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">x</span></span></span></span>，<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>2</mn><mi>x</mi><mo>+</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">2x+1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.72777em;vertical-align:-0.08333em;"></span><span class="mord">2</span><span class="mord mathdefault">x</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span></span></span></span>的父亲是<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>2</mn><mi>x</mi></mrow><annotation encoding="application/x-tex">2x</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">2</span><span class="mord mathdefault">x</span></span></span></span></p>
+<p>所以就变成了最大的数，它的子树大小<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>≥</mo><mi>k</mi></mrow><annotation encoding="application/x-tex">\geq k</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7719400000000001em;vertical-align:-0.13597em;"></span><span class="mrel">≥</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.03148em;">k</span></span></span></span></p>
+<p>那么很显然可以二分</p>
+<p>我们分奇偶进行计算</p>
+<p>偶数的时候要算上偶数加一的子树大小</p>
+<p>对于一个数计算他的子树大小可以让他不断乘2计算</p>
+<figure class="highlight c++"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs C++"><br><span class="hljs-comment">/*</span><br><span class="hljs-comment"> *</span><br><span class="hljs-comment"> * Author: Hsueh-</span><br><span class="hljs-comment"> * Date: 2020-02-11 11:13:58</span><br><span class="hljs-comment"> *</span><br><span class="hljs-comment"> * */</span><br><br><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;bits/stdc++.h&gt;</span></span><br><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> <span class="hljs-built_in">std</span>;<br><br><span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> dbg(x...)             \</span><br>    <span class="hljs-keyword">do</span> &#123;                      \<br>        <span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-meta">#x <span class="hljs-meta-string">&lt;&lt; &quot; -&gt; &quot;; \</span></span><br>        err(x);               \<br>    &#125; <span class="hljs-keyword">while</span> (<span class="hljs-number">0</span>)<br><br><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">err</span><span class="hljs-params">()</span> </span>&#123;<br>    <span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-built_in">endl</span>;<br>&#125;<br><br><span class="hljs-keyword">template</span> &lt;<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">T</span>, <span class="hljs-title">class</span>... <span class="hljs-title">Ts</span>&gt;</span><br><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">err</span><span class="hljs-params">(<span class="hljs-keyword">const</span> T&amp; arg, <span class="hljs-keyword">const</span> Ts&amp;... args)</span> </span>&#123;<br>    <span class="hljs-built_in">cout</span> &lt;&lt; arg &lt;&lt; <span class="hljs-string">&#x27; &#x27;</span>;<br>    err(args...);<br>&#125;<br><br><span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> endl <span class="hljs-meta-string">&quot;\n&quot;</span></span><br><span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> all(A) A.begin(), A.end()</span><br><span class="hljs-keyword">using</span> pII = <span class="hljs-built_in">pair</span>&lt;<span class="hljs-keyword">int</span>, <span class="hljs-keyword">int</span>&gt;;<br><span class="hljs-keyword">using</span> ll = <span class="hljs-keyword">long</span> <span class="hljs-keyword">long</span>;<br><span class="hljs-keyword">using</span> db = <span class="hljs-keyword">double</span>;<br><br><span class="hljs-keyword">const</span> <span class="hljs-keyword">int</span> INF = <span class="hljs-number">0x3f3f3f3f</span>;<br><span class="hljs-keyword">const</span> ll INFLL = <span class="hljs-number">0x3f3f3f3f3f3f3f3f</span>;<br><span class="hljs-keyword">const</span> <span class="hljs-keyword">int</span> N = <span class="hljs-number">2e5</span> + <span class="hljs-number">10</span>;<br><br>ll n, k;<br><br><span class="hljs-function">ll <span class="hljs-title">f</span><span class="hljs-params">(ll x)</span> </span>&#123;<br>    ll res = <span class="hljs-number">0</span>, t = <span class="hljs-number">1</span>;<br>    <span class="hljs-keyword">while</span> (x &lt;= n) &#123;<br>        res += min(t, n - x + <span class="hljs-number">1</span>);<br>        x &lt;&lt;= <span class="hljs-number">1</span>, t &lt;&lt;= <span class="hljs-number">1</span>;<br>    &#125;<br>    <span class="hljs-keyword">return</span> res;<br>&#125;<br><br><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">RUN</span><span class="hljs-params">()</span> </span>&#123;<br>    <span class="hljs-built_in">cin</span> &gt;&gt; n &gt;&gt; k;<br>    ll res = <span class="hljs-number">-1</span>;<br>    ll l = <span class="hljs-number">1</span>, r = n / <span class="hljs-number">2</span>, x = <span class="hljs-number">-1</span>;<br>    <span class="hljs-keyword">while</span> (r - l &gt;= <span class="hljs-number">0</span>) &#123;<br>        ll mid = (l + r) &gt;&gt; <span class="hljs-number">1</span>;<br>        <span class="hljs-keyword">if</span> (f(mid &lt;&lt; <span class="hljs-number">1</span>) + f(mid &lt;&lt; <span class="hljs-number">1</span> | <span class="hljs-number">1</span>) &gt;= k) &#123;<br>            l = mid + <span class="hljs-number">1</span>;<br>            x = mid &lt;&lt; <span class="hljs-number">1</span>;<br>        &#125; <span class="hljs-keyword">else</span> &#123;<br>            r = mid - <span class="hljs-number">1</span>;<br>        &#125;<br>    &#125;<br>    res = max(res, x);<br>    l = <span class="hljs-number">1</span>, r = (n + <span class="hljs-number">1</span>) / <span class="hljs-number">2</span>, x = <span class="hljs-number">-1</span>;<br>    <span class="hljs-keyword">while</span> (r - l &gt;= <span class="hljs-number">0</span>) &#123;<br>        ll mid = (l + r) &gt;&gt; <span class="hljs-number">1</span>;<br>        <span class="hljs-keyword">if</span> (f(<span class="hljs-number">2</span> * mid - <span class="hljs-number">1</span>) &gt;= k) &#123;<br>            l = mid + <span class="hljs-number">1</span>;<br>            x = <span class="hljs-number">2</span> * mid - <span class="hljs-number">1</span>;<br>        &#125; <span class="hljs-keyword">else</span> &#123;<br>            r = mid - <span class="hljs-number">1</span>;<br>        &#125;<br>    &#125;<br>    <span class="hljs-built_in">cout</span> &lt;&lt; max(res, x) &lt;&lt; <span class="hljs-built_in">endl</span>;<br>&#125;<br><br><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> </span>&#123;<br>    ios::sync_with_stdio(<span class="hljs-literal">false</span>);<br>    <span class="hljs-built_in">cin</span>.tie(<span class="hljs-literal">nullptr</span>), <span class="hljs-built_in">cout</span>.tie(<span class="hljs-literal">nullptr</span>);<br>    <span class="hljs-built_in">cout</span> &lt;&lt; fixed &lt;&lt; setprecision(<span class="hljs-number">20</span>);<br><br>    RUN();<br>    <br>    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br><br></code></pre></div></td></tr></table></figure>
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/Codeforces/">Codeforces</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2020/02/21/Codeforces_Round_620_(Div.-2)/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">Codeforces Round 620 (Div. 2)</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2020/02/03/%E6%9C%80%E5%A4%A7%E5%9B%A2_Bron-Kerbosch/">
+                        <span class="hidden-mobile">最大团 Bron-Kerbosch</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+              <!-- Comments -->
+              <article class="comments" id="comments">
+                
+                
+  <div id="vcomments"></div>
+  <script type="text/javascript">
+    Fluid.utils.waitElementVisible('vcomments', function() {
+      Fluid.utils.createScript('https://cdn.jsdelivr.net/npm/valine@1.4.14/dist/Valine.min.js', function () {
+        new Valine({
+          el: "#vcomments",
+          app_id: "kCmk4bWtyiEF1TyWkbzRJwoS-gzGzoHsz",
+          app_key: "DyQhYPCkIBEgU0dNSnW90YM4",
+          placeholder: "说点什么",
+          path: window.location.pathname,
+          avatar: "retro",
+          meta: ["nick","mail","link"],
+          pageSize: "10",
+          lang: "zh-CN",
+          highlight: false,
+          recordIP: false,
+          serverURLs: "",
+        });
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the
+    <a target="_blank" href="https://valine.js.org" rel="nofollow noopener noopener">comments powered by Valine.</a>
+  </noscript>
+
+
+              </article>
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://github.com/Hsueh-Xue" target="_blank" rel="nofollow noopener"><span>Hsueh-</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/Hsueh-Xue" target="_blank" rel="nofollow noopener"><span>Github</span></a> 
+  </div>
+  
+  <div class="statistics">
+    
+    
+
+    
+      
+        <!-- 不蒜子统计PV -->
+        <span id="busuanzi_container_site_pv" style="display: none">
+            总访问量 
+            <span id="busuanzi_value_site_pv"></span>
+             次
+          </span>
+      
+      
+        <!-- 不蒜子统计UV -->
+        <span id="busuanzi_container_site_uv" style="display: none">
+            总访客数 
+            <span id="busuanzi_value_site_uv"></span>
+             人
+          </span>
+      
+    
+  </div>
+
+
+  
+  <!-- 备案信息 -->
+  <div class="beian">
+    <span>
+      <a href="http://beian.miit.gov.cn/" target="_blank" rel="nofollow noopener">
+        浙ICP备20005122号-1
+      </a>
+    </span>
+    
+  </div>
+
+
+  
+</footer>
+
+<!-- SCRIPTS -->
+
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":true,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/debouncer.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/tocbot@4.12.0/dist/tocbot.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4.3.0/anchor.min.js" ></script>
+
+
+
+  <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js" ></script>
+
+
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+      typing(title)
+      
+    })(window, document);
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    (function () {
+      var path = "https://cdn.jsdelivr.net/gh/Hsueh-Xue/Hsueh-Xue.github.io@master/local-search.xml";
+      var inputArea = document.querySelector("#local-search-input");
+      inputArea.onclick = function () {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+        this.onclick = null
+      }
+    })()
+  </script>
+
+
+
+
+
+  
+
+  
+    <!-- KaTeX -->
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" />
+  
+
+
+
+
+
+
+
+
+  
+    <!-- Baidu Analytics -->
+    <script defer>
+      var _hmt = _hmt || [];
+      (function () {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?d41ced546e0d98131079f76f87dd8046";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+      })();
+    </script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+
+</body>
+</html>

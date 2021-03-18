@@ -1,0 +1,628 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=&#34;auto&#34;>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="https://cdn.jsdelivr.net/gh/Hsueh-Xue/Hsueh-Xue.github.io@master/img/favicon.png">
+  <link rel="icon" type="image/png" href="https://cdn.jsdelivr.net/gh/Hsueh-Xue/Hsueh-Xue.github.io@master/img/favicon.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="">
+  <meta name="author" content="Hsueh">
+  <meta name="keywords" content="">
+  <title>Domjudge安装记录 - Hsueh&#39; blog</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Hsueh-Xue/Hsueh-Xue.github.io@master/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.4.0/styles/github-gist.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+  
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"blog.hsueh.club","root":"/","version":"1.8.7","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":true},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":true,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"onlypost":false},"web_analytics":{"enable":true,"baidu":"d41ced546e0d98131079f76f87dd8046","google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}}};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.3.0"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>Hsueh's blog</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/">
+                <i class="iconfont icon-link-fill"></i>
+                友链
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" href="javascript:">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('https://cdn.jsdelivr.net/gh/Hsueh-Xue/Hsueh-Xue.github.io@master/img/default.png') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="Domjudge安装记录">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-author" aria-hidden="true"></i>
+      Hsueh
+    </span>
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2020-12-01 20:51" pubdate>
+        星期二, 十二月 1日 2020, 8:51 晚上
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      2k 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      33
+       分钟
+    </span>
+  
+
+  
+  
+    
+      <!-- 不蒜子统计文章PV -->
+      <span id="busuanzi_container_page_pv" style="display: none">
+        <i class="iconfont icon-eye" aria-hidden="true"></i>
+        <span id="busuanzi_value_page_pv"></span> 次
+      </span>
+    
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">Domjudge安装记录</h1>
+            
+              <p class="note note-info">
+                
+                  本文最后更新于：星期四, 十二月 10日 2020, 9:52 晚上
+                
+              </p>
+            
+            <div class="markdown-body">
+              <p>本文参考于：<a target="_blank" rel="noopener" href="https://github.com/cn-xcpc-tools/cn-xcpc-docs">https://github.com/cn-xcpc-tools/cn-xcpc-docs</a></p>
+<h3 id="前期准备"><a class="markdownIt-Anchor" href="#前期准备"></a> 前期准备</h3>
+<ul>
+<li>腾讯云学生机</li>
+<li>Ubuntu Server 18.04.1 LTS 64位</li>
+</ul>
+<h3 id="安装依赖包和功能"><a class="markdownIt-Anchor" href="#安装依赖包和功能"></a> 安装依赖包和功能</h3>
+<figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell">sudo apt-get upgrade &amp;&amp; sudo apt-get update<br></code></pre></div></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell">sudo apt install gcc g++ make zip unzip mariadb-server \<br>        apache2 php php-cli libapache2-mod-php php-zip \<br>        php-gd php-curl php-mysql php-json php-xml php-intl php-mbstring \<br>        acl bsdmainutils ntp phpmyadmin python-pygments \<br>        libcgroup-dev linuxdoc-tools linuxdoc-tools-text \<br>        groff texlive-latex-recommended texlive-latex-extra \<br>        texlive-fonts-recommended texlive-lang-european composer<br></code></pre></div></td></tr></table></figure>
+<p>安装时选择 <code>apache2</code></p>
+<figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell">sudo apt install libcurl4-gnutls-dev libjsoncpp-dev libmagic-dev<br></code></pre></div></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell">sudo phpenmod json<br></code></pre></div></td></tr></table></figure>
+<h3 id="编译domjudge"><a class="markdownIt-Anchor" href="#编译domjudge"></a> 编译Domjudge</h3>
+<p><a href="%5Cblog%5Cupload%5CDomjudge%5Cdomjudge-7.1.1.tar.gz">domjudge-7.1.1.tar.gz</a></p>
+<figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell">cd Downloads<br>wget https://www.domjudge.org/releases/domjudge-7.1.1.tar.gz<br></code></pre></div></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell">tar -zxvf domjudge-7.1.1.tar.gz<br></code></pre></div></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell">cd domjudge-7.1.1<br>./configure --prefix=/opt/domjudge --with-baseurl=127.0.0.1<br>make domserver &amp;&amp; sudo make install-domserver<br>make docs &amp;&amp; sudo make install-docs<br></code></pre></div></td></tr></table></figure>
+<h3 id="配置数据库"><a class="markdownIt-Anchor" href="#配置数据库"></a> 配置数据库</h3>
+<figure class="highlight awk"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs awk">cd <span class="hljs-regexp">/opt/</span>domjudge/domserver<br>sudo bin/dj_setup_database -u root install<br></code></pre></div></td></tr></table></figure>
+<h3 id="配置-web-服务器"><a class="markdownIt-Anchor" href="#配置-web-服务器"></a> 配置 Web 服务器</h3>
+<figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell">cd /opt/domjudge/domserver<br>sudo ln -s /opt/domjudge/domserver/etc/apache.conf /etc/apache2/conf-available/domjudge.conf<br>sudo a2enmod rewrite<br>sudo a2enconf domjudge<br>sudo systemctl reload apache2<br>sudo chown www-data:www-data -R /opt/domjudge/domserver/webapp/var/*<br></code></pre></div></td></tr></table></figure>
+<p>现在你应该可以访问 <code>http://127.0.0.1/domjudge</code> 或者公网并使用用户名 <code>admin</code> 与 <code>/opt/domjudge/domserver/etc/initial_admin_password.secret</code> 内生成的密码登录 domjudge 后台了。</p>
+<h3 id="配置-mysql"><a class="markdownIt-Anchor" href="#配置-mysql"></a> 配置 MySQL</h3>
+<p>编辑 <code>/etc/mysql/conf.d/mysql.cnf</code>，追加以下内容：</p>
+<figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell">[mysqld]<br>max_connections = 1000<br>max_allowed_packet = 16MB<br>innodb_log_file_size = 48MB<br></code></pre></div></td></tr></table></figure>
+<p>其中 <code>max_allowed_packet</code> 数值改成两倍于题目测试数据文件的大小，<code>innodb_log_file_size</code> 数值改成十倍于题目测试数据文件的大小。</p>
+<figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell">sudo systemctl restart mysql<br></code></pre></div></td></tr></table></figure>
+<h3 id="配置php"><a class="markdownIt-Anchor" href="#配置php"></a> 配置php</h3>
+<p>编辑 <code>/opt/domjudge/domserver/etc/apache.conf</code>，取消以下几行内容前的注释：</p>
+<figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell">&lt;IfModule mod_php7.c&gt;<br>php_value max_file_uploads      101<br>php_value upload_max_filesize   128M<br>php_value post_max_size         128M<br>php_value memory_limit          512M<br>&lt;/IfModule&gt;<br></code></pre></div></td></tr></table></figure>
+<p>编辑 <code>/etc/php/7.2/apache2/php.ini</code>，搜索 <code>date.timezone</code> 关键字，取消其行前注释，并将其值设为 <code>Asia/Shanghai</code>。搜索 <code>max_execution_time</code> 关键字，将其值由30改为300，防止生成队伍密码时 PHP 执行超时。</p>
+<figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell">sudo systemctl restart apache2<br></code></pre></div></td></tr></table></figure>
+<h3 id="配置-apache"><a class="markdownIt-Anchor" href="#配置-apache"></a> 配置 Apache</h3>
+<p>编辑 <code>/etc/apache2/apache2.conf</code>，搜索 <code>KeepAlive</code> 关键字，将其值设为 <code>Off</code>，并在其后新增一行内容：</p>
+<figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell">MaxClients 1000<br></code></pre></div></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell">sudo systemctl restart apache2<br></code></pre></div></td></tr></table></figure>
+<h2 id="搭建judgehost"><a class="markdownIt-Anchor" href="#搭建judgehost"></a> 搭建judgehost</h2>
+<h2 id="准备工作"><a class="markdownIt-Anchor" href="#准备工作"></a> 准备工作</h2>
+<h3 id="安装依赖包和功能-2"><a class="markdownIt-Anchor" href="#安装依赖包和功能-2"></a> 安装依赖包和功能</h3>
+<figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell">sudo apt-get upgrade &amp;&amp; sudo apt-get update<br>sudo apt install make sudo debootstrap libcgroup-dev lsof zip unzip\<br>        php-cli php-curl php-json php-xml php-zip procps \<br>        gcc g++ openjdk-8-jre-headless \<br>        openjdk-8-jdk ghc fp-compiler \<br>        libcurl4-gnutls-dev libjsoncpp-dev libmagic-dev<br></code></pre></div></td></tr></table></figure>
+<h3 id="编译-domjudge"><a class="markdownIt-Anchor" href="#编译-domjudge"></a> 编译 Domjudge</h3>
+<figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell">cd Downloads<br>wget https://www.domjudge.org/releases/domjudge-7.1.1.tar.gz<br>tar -zxvf domjudge-7.1.1.tar.gz<br>cd domjudge-7.1.1<br>./configure --prefix=/opt/domjudge --with-baseurl=127.0.0.1<br>make judgehost &amp;&amp; sudo make install-judgehost<br></code></pre></div></td></tr></table></figure>
+<p>这会将 judgehost 安装在 <code>/opt/domjudge/judgehost</code> 里。</p>
+<h2 id="配置-judgehost"><a class="markdownIt-Anchor" href="#配置-judgehost"></a> 配置 judgehost</h2>
+<h3 id="添加用户"><a class="markdownIt-Anchor" href="#添加用户"></a> 添加用户</h3>
+<figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell">useradd -d /nonexistent -U -M -s /bin/false domjudge-run<br><span class="hljs-meta">#</span><span class="bash"> 如果 judgehost 拥有多个 CPU 核心，你可以添加额外的用户来支持绑定</span><br><span class="hljs-meta">#</span><span class="bash"> 不同的 judgehost 进程到不同的 CPU 核心上，如下：</span><br>useradd -d /nonexistent -U -M -s /bin/false domjudge-run-0<br>useradd -d /nonexistent -U -M -s /bin/false domjudge-run-1<br>useradd -d /nonexistent -U -M -s /bin/false domjudge-run-2<br>useradd -d /nonexistent -U -M -s /bin/false domjudge-run-3<br><span class="hljs-meta">#</span><span class="bash"> ... 如果有更多的 CPU 核心，请自行添加更多的用户</span><br></code></pre></div></td></tr></table></figure>
+<h3 id="配置-sudoers"><a class="markdownIt-Anchor" href="#配置-sudoers"></a> 配置 sudoers</h3>
+<p>将 /opt/domjudge/judgehost/etc/sudoers-domjudge 复制到 /etc/sudoers.d/ 目录下。</p>
+<figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell">sudo cp /opt/domjudge/judgehost/etc/sudoers-domjudge /etc/sudoers.d/<br></code></pre></div></td></tr></table></figure>
+<h3 id="修改-rest-密码"><a class="markdownIt-Anchor" href="#修改-rest-密码"></a> 修改 rest 密码</h3>
+<p>使用 vim 等文本编辑器编辑 /opt/domjudge/judgehost 目录下 etc/restapi.secret 这个文件。文件的格式为：</p>
+<figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell">default http://example.edu/domjudge/api/  judgehosts  MzfJYWF5agSlUfmiGEy5mgkfqU<br></code></pre></div></td></tr></table></figure>
+<p><code>注意不要有空行</code></p>
+<p>格式为 endpoint api_url username password ，endpoint 可以保持不变，api_url 根据 judgeserver 的地址进行修改，username 和 password 要与 domserver上的 etc/restapi.secret 保持一致。</p>
+<h3 id="构建-chroot-环境"><a class="markdownIt-Anchor" href="#构建-chroot-环境"></a> 构建 chroot 环境</h3>
+<p>使用 vim 等文本编辑器编辑 ~/domjudge/judgehost/bin/dj_make_chroot 脚本，将 ubuntu 镜像改为国内源。（第 172 行）</p>
+<figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell"><span class="hljs-meta">#</span><span class="bash"> Ubuntu mirror, modify to match closest mirror</span><br>[ -z &quot;$DEBMIRROR&quot; ] &amp;&amp; DEBMIRROR=&quot;http://mirrors.aliyun.com/ubuntu/&quot;<br></code></pre></div></td></tr></table></figure>
+<p>修改之后保存并运行此脚本(bash 运行)。这一步会从源上下载必要的软件包，所以请耐心等待。</p>
+<h3 id="设置cgroup"><a class="markdownIt-Anchor" href="#设置cgroup"></a> 设置cgroup</h3>
+<p>使用 vim 等文本编辑器编辑 /etc/default/grub 这个文件，对其中的这一行做如下修改：</p>
+<figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell">GRUB_CMDLINE_LINUX_DEFAULT=&quot;quiet cgroup_enable=memory swapaccount=1&quot;<br></code></pre></div></td></tr></table></figure>
+<p>如果下面的步骤仍然报错 那就修改</p>
+<figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell">GRUB_CMDLINE_LINUX=&quot;quiet cgroup_enable=memory swapaccount=1&quot;<br></code></pre></div></td></tr></table></figure>
+<p>然后执行：</p>
+<figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell">update-grub<br></code></pre></div></td></tr></table></figure>
+<p>之后<strong>重启计算机</strong>。</p>
+<h3 id="启动-judgehost"><a class="markdownIt-Anchor" href="#启动-judgehost"></a> 启动 judgehost</h3>
+<p>如果需要使用cgroup，则每次重启之后都要运行 <code>/opt/domjudge/judgehost/bin/create_cgroups</code><br />
+<code>/opt/domjudge/judgehost/bin/judgedaemon</code> 即可启动，若提示 <code>error: Call to undefined function curl_init()</code>，则可以安装 php-curl 解决</p>
+<p>如果想要断开连接并且还可以正常使用判题机，这样来</p>
+<figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell">bash /opt/domjudge/judgehost/bin/create_cgroups<br>nohup /opt/domjudge/judgehost/bin/judgedaemon &amp; <br></code></pre></div></td></tr></table></figure>
+<p>退出连接的时候记得用exit，不要直接关闭 到这里，domjudge就可以正常投入使用了。</p>
+<h3 id="配置多-judgehost-的-systemd-及-rsyslog"><a class="markdownIt-Anchor" href="#配置多-judgehost-的-systemd-及-rsyslog"></a> 配置多 judgehost 的 systemd 及 rsyslog</h3>
+<p>使用 vim 等文本编辑器在 /lib/systemd/system 下新建一个文本文件叫做 create-cgroups.service，写入下列内容：</p>
+<figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell">[Unit]<br>Description=Make sure cgroups exist for DOMjudge judgedaemon<br><br>[Service]<br>Type=oneshot<br>ExecStart=/opt/domjudge/judgehost/bin/create_cgroups<br>RemainAfterExit=true<br></code></pre></div></td></tr></table></figure>
+<p>在 /lib/systemd/system 下再新建一个文本文件叫做 <a href="mailto:domjudge-judgehost@.service">domjudge-judgehost@.service</a>，写入下列内容： 注意 <code>User=&lt;username&gt;</code> 要用自己编译 judgehost 时的用户名，因为 /etc/sudoers.d/sudoers-domjudge 列表里是当时的用户</p>
+<figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell">[Unit]<br>Description=DOMjudge JudgeDaemon<br>Requires=create-cgroups.service<br>After=create-cgroups.service<br>After=network.target<br><br>[Service]<br>Type=simple<br><br>ExecStart=/opt/domjudge/judgehost/bin/judgedaemon -n %i<br>User=&lt;username&gt;<br><br>Restart=always<br>RestartSec=3<br>PrivateTmp=yes<br><br>StandardOutput=syslog<br>StandardError=syslog<br>SyslogIdentifier=judgehost-%i<br><br>[Install]<br>WantedBy=multi-user.target<br></code></pre></div></td></tr></table></figure>
+<p>在 /etc/rsyslog.d/ 下新建一个文本文件叫做 judgehost.conf，写入下列内容：</p>
+<figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell">:programname, isequal, &quot;judgehost-0&quot; /var/log/judgehost/judgehost-0.log<br>:programname, isequal, &quot;judgehost-1&quot; /var/log/judgehost/judgehost-1.log<br>:programname, isequal, &quot;judgehost-2&quot; /var/log/judgehost/judgehost-2.log<br>:programname, isequal, &quot;judgehost-3&quot; /var/log/judgehost/judgehost-3.log<br></code></pre></div></td></tr></table></figure>
+<p>重启日志服务，启动四个 judgehost：</p>
+<figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell">sudo systemctl restart rsyslog<br>sudo systemctl start domjudge-judgehost@0<br>sudo systemctl start domjudge-judgehost@1<br>sudo systemctl start domjudge-judgehost@2<br>sudo systemctl start domjudge-judgehost@3<br></code></pre></div></td></tr></table></figure>
+<p>judgedaemon的日志会保存在 /var/log/judgehost 下</p>
+<p>一些杂项</p>
+<figure class="highlight shell"><figcaption><span>script</span></figcaption><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell">./configure --prefix=/opt/domjudge --with-baseurl=127.0.0.1<br><br>wget https://dup4.top/attachments/domjudge-7.1.1.tar.gz<br><br>default	http://localhost/domjudge/api	judgehost	123456<br><br>sudo useradd -d /nonexistent -U -M -s /bin/false domjudge-run-0<br>sudo useradd -d /nonexistent -U -M -s /bin/false domjudge-run-1<br>sudo useradd -d /nonexistent -U -M -s /bin/false domjudge-run-2<br>sudo useradd -d /nonexistent -U -M -s /bin/false domjudge-run-3<br>sudo useradd -d /nonexistent -U -M -s /bin/false domjudge-run-4<br>sudo useradd -d /nonexistent -U -M -s /bin/false domjudge-run-5<br>sudo useradd -d /nonexistent -U -M -s /bin/false domjudge-run-6<br>sudo useradd -d /nonexistent -U -M -s /bin/false domjudge-run-7<br>sudo useradd -d /nonexistent -U -M -s /bin/false domjudge-run-8<br>sudo useradd -d /nonexistent -U -M -s /bin/false domjudge-run-9<br>sudo useradd -d /nonexistent -U -M -s /bin/false domjudge-run-10<br>sudo useradd -d /nonexistent -U -M -s /bin/false domjudge-run-11<br>sudo useradd -d /nonexistent -U -M -s /bin/false domjudge-run-12<br>sudo useradd -d /nonexistent -U -M -s /bin/false domjudge-run-13<br>sudo useradd -d /nonexistent -U -M -s /bin/false domjudge-run-14<br>sudo useradd -d /nonexistent -U -M -s /bin/false domjudge-run-15<br>sudo useradd -d /nonexistent -U -M -s /bin/false domjudge-run-16<br><br>sudo vim /lib/systemd/system/domjudge-judgehost@.service<br><br>sudo vim /etc/rsyslog.d/judgehost.conf<br><br>:programname, isequal, &quot;judgehost-0&quot; /var/log/judgehost/judgehost-0.log<br>:programname, isequal, &quot;judgehost-1&quot; /var/log/judgehost/judgehost-1.log<br>:programname, isequal, &quot;judgehost-2&quot; /var/log/judgehost/judgehost-2.log<br>:programname, isequal, &quot;judgehost-3&quot; /var/log/judgehost/judgehost-3.log<br>:programname, isequal, &quot;judgehost-3&quot; /var/log/judgehost/judgehost-4.log<br>:programname, isequal, &quot;judgehost-3&quot; /var/log/judgehost/judgehost-5.log<br>:programname, isequal, &quot;judgehost-3&quot; /var/log/judgehost/judgehost-6.log<br>:programname, isequal, &quot;judgehost-3&quot; /var/log/judgehost/judgehost-7.log<br>:programname, isequal, &quot;judgehost-3&quot; /var/log/judgehost/judgehost-8.log<br>:programname, isequal, &quot;judgehost-3&quot; /var/log/judgehost/judgehost-9.log<br>:programname, isequal, &quot;judgehost-3&quot; /var/log/judgehost/judgehost-10.log<br>:programname, isequal, &quot;judgehost-3&quot; /var/log/judgehost/judgehost-11.log<br>:programname, isequal, &quot;judgehost-3&quot; /var/log/judgehost/judgehost-12.log<br>:programname, isequal, &quot;judgehost-3&quot; /var/log/judgehost/judgehost-13.log<br>:programname, isequal, &quot;judgehost-3&quot; /var/log/judgehost/judgehost-14.log<br>:programname, isequal, &quot;judgehost-3&quot; /var/log/judgehost/judgehost-15.log<br>:programname, isequal, &quot;judgehost-3&quot; /var/log/judgehost/judgehost-16.log<br><br><span class="hljs-meta">#</span><span class="bash">重启judge</span><br>sudo systemctl restart rsyslog<br>sudo systemctl start domjudge-judgehost@0<br>sudo systemctl start domjudge-judgehost@1<br>sudo systemctl start domjudge-judgehost@2<br>sudo systemctl start domjudge-judgehost@3<br>sudo systemctl start domjudge-judgehost@4<br>sudo systemctl start domjudge-judgehost@5<br>sudo systemctl start domjudge-judgehost@6<br>sudo systemctl start domjudge-judgehost@7<br>sudo systemctl start domjudge-judgehost@8<br>sudo systemctl start domjudge-judgehost@9<br>sudo systemctl start domjudge-judgehost@10<br>sudo systemctl start domjudge-judgehost@11<br>sudo systemctl start domjudge-judgehost@12<br>sudo systemctl start domjudge-judgehost@13<br>sudo systemctl start domjudge-judgehost@14<br>sudo systemctl start domjudge-judgehost@15<br>sudo systemctl start domjudge-judgehost@16<br><br><span class="hljs-meta">#</span><span class="bash">设置开机启动</span><br>sudo systemctl enable domjudge-judgehost@0<br>sudo systemctl enable domjudge-judgehost@1<br>sudo systemctl enable domjudge-judgehost@2<br>sudo systemctl enable domjudge-judgehost@3<br>sudo systemctl enable domjudge-judgehost@4<br>sudo systemctl enable domjudge-judgehost@5<br>sudo systemctl enable domjudge-judgehost@6<br>sudo systemctl enable domjudge-judgehost@7<br>sudo systemctl enable domjudge-judgehost@8<br>sudo systemctl enable domjudge-judgehost@9<br>sudo systemctl enable domjudge-judgehost@10<br>sudo systemctl enable domjudge-judgehost@11<br>sudo systemctl enable domjudge-judgehost@12<br>sudo systemctl enable domjudge-judgehost@13<br>sudo systemctl enable domjudge-judgehost@14<br>sudo systemctl enable domjudge-judgehost@15<br>sudo systemctl enable domjudge-judgehost@16<br><br></code></pre></div></td></tr></table></figure>
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/">服务器</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2021/01/30/%E5%A3%B0%E6%98%8E/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">声明</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2020/11/30/2020%E5%B9%B4CCCC-%E6%80%BB%E5%86%B3%E8%B5%9B/">
+                        <span class="hidden-mobile">2020年CCCC-总决赛</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+              <!-- Comments -->
+              <article class="comments" id="comments">
+                
+                
+  <div id="vcomments"></div>
+  <script type="text/javascript">
+    Fluid.utils.waitElementVisible('vcomments', function() {
+      Fluid.utils.createScript('https://cdn.jsdelivr.net/npm/valine@1.4.14/dist/Valine.min.js', function () {
+        new Valine({
+          el: "#vcomments",
+          app_id: "kCmk4bWtyiEF1TyWkbzRJwoS-gzGzoHsz",
+          app_key: "DyQhYPCkIBEgU0dNSnW90YM4",
+          placeholder: "说点什么",
+          path: window.location.pathname,
+          avatar: "retro",
+          meta: ["nick","mail","link"],
+          pageSize: "10",
+          lang: "zh-CN",
+          highlight: false,
+          recordIP: false,
+          serverURLs: "",
+        });
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the
+    <a target="_blank" href="https://valine.js.org" rel="nofollow noopener noopener">comments powered by Valine.</a>
+  </noscript>
+
+
+              </article>
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://github.com/Hsueh-Xue" target="_blank" rel="nofollow noopener"><span>Hsueh-</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/Hsueh-Xue" target="_blank" rel="nofollow noopener"><span>Github</span></a> 
+  </div>
+  
+  <div class="statistics">
+    
+    
+
+    
+      
+        <!-- 不蒜子统计PV -->
+        <span id="busuanzi_container_site_pv" style="display: none">
+            总访问量 
+            <span id="busuanzi_value_site_pv"></span>
+             次
+          </span>
+      
+      
+        <!-- 不蒜子统计UV -->
+        <span id="busuanzi_container_site_uv" style="display: none">
+            总访客数 
+            <span id="busuanzi_value_site_uv"></span>
+             人
+          </span>
+      
+    
+  </div>
+
+
+  
+  <!-- 备案信息 -->
+  <div class="beian">
+    <span>
+      <a href="http://beian.miit.gov.cn/" target="_blank" rel="nofollow noopener">
+        浙ICP备20005122号-1
+      </a>
+    </span>
+    
+  </div>
+
+
+  
+</footer>
+
+<!-- SCRIPTS -->
+
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":true,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/debouncer.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/tocbot@4.12.0/dist/tocbot.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4.3.0/anchor.min.js" ></script>
+
+
+
+  <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js" ></script>
+
+
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+      typing(title)
+      
+    })(window, document);
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    (function () {
+      var path = "https://cdn.jsdelivr.net/gh/Hsueh-Xue/Hsueh-Xue.github.io@master/local-search.xml";
+      var inputArea = document.querySelector("#local-search-input");
+      inputArea.onclick = function () {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+        this.onclick = null
+      }
+    })()
+  </script>
+
+
+
+
+
+  
+
+  
+    <!-- KaTeX -->
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" />
+  
+
+
+
+
+
+
+
+
+  
+    <!-- Baidu Analytics -->
+    <script defer>
+      var _hmt = _hmt || [];
+      (function () {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?d41ced546e0d98131079f76f87dd8046";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+      })();
+    </script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+
+</body>
+</html>

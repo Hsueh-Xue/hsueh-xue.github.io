@@ -179,7 +179,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      21.4k 字
+      22k 字
     </span>
   
 
@@ -189,7 +189,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      226
+      233
        分钟
     </span>
   
@@ -231,7 +231,7 @@
             
               <p class="note note-info">
                 
-                  本文最后更新于：星期五, 四月 9日 2021, 3:16 下午
+                  本文最后更新于：星期二, 四月 13日 2021, 11:37 中午
                 
               </p>
             
@@ -727,6 +727,41 @@ ABA：如果另一个线程修改V值假设原来是A，先修改成B，再修�
 <h1 id="c"><a class="markdownIt-Anchor" href="#c"></a> C++</h1>
 <h2 id="智能指针"><a class="markdownIt-Anchor" href="#智能指针"></a> 智能指针</h2>
 <p>智能指针主要用于管理在堆上分配的内存，它将普通的指针封装为一个栈对象。当栈对象的生存周期结束后，会在析构函数中释放掉申请的内存，从而防止内存泄漏。</p>
+<h3 id="auto_ptr"><a class="markdownIt-Anchor" href="#auto_ptr"></a> auto_ptr</h3>
+<p>从C ++ 11开始，此类模板已被弃用。 unique_ptr是具有相似功能但具有改进的安全性的新工具。<br />
+auto_ptr是一个智能指针，用于管理通过新表达式获取的对象，并在auto_ptr本身被销毁时删除该对象。<br />
+当使用auto_ptr类描述一个对象时，它存储一个指向单个分配对象的指针，该对象可以确保当它超出范围时，它指向的对象必须被自动销毁。 它基于独占所有权模式，即同一类型的两个指针不能同时指向相同的资源。 如下面的程序所示，复制或分配指针会更改所有权，即源指针必须赋予目标指针所有权。</p>
+<h3 id="unique_ptr"><a class="markdownIt-Anchor" href="#unique_ptr"></a> unique_ptr</h3>
+<p>unique_ptr 是一个独享所有权的智能指针：</p>
+<ol>
+<li>拥有它指向的对象</li>
+<li>无法进行复制构造，无法进行复制赋值操作。即无法使两个unique_ptr指向同一个对象。但是可以进行移动构造和移动赋值操作</li>
+<li>保存指向某个对象的指针，当它本身被删除释放的时候，会使用给定的删除器释放它指向的对象</li>
+</ol>
+<p>unique_ptr 可以实现如下功能：</p>
+<ol>
+<li>
+<p>为动态申请的内存提供异常安全</p>
+</li>
+<li>
+<p>讲动态申请的内存所有权传递给某函数</p>
+</li>
+<li>
+<p>从某个函数返回动态申请内存的所有权</p>
+</li>
+<li>
+<p>在容器中保存指针</p>
+</li>
+<li>
+<p>auto_ptr 应该具有的功能</p>
+</li>
+</ol>
+<h3 id="shared_ptr"><a class="markdownIt-Anchor" href="#shared_ptr"></a> shared_ptr</h3>
+<p>从名字share就可以看出了资源可以被多个指针共享，它使用计数机制来表明资源被几个指针共享。可以通过成员函数use_count()来查看资源的所有者个数。出了可以通过new来构造，还可以通过传入auto_ptr, unique_ptr,weak_ptr来构造。当我们调用release()时，当前指针会释放资源所有权，计数减一。当计数等于0时，资源（指向的对象）会被释放。此处调动reset不能销毁对象，只有当计数为0时候才可以。</p>
+<h3 id="week_ptr"><a class="markdownIt-Anchor" href="#week_ptr"></a> week_ptr</h3>
+<p>weak_ptr是用来解决shared_ptr相互引用时的死锁问题,如果说两个shared_ptr相互引用,那么这两个指针的引用计数永远不可能下降为0,资源永远不会释放。它是对对象的一种弱引用，不会增加对象的引用计数，和shared_ptr之间可以相互转化，shared_ptr可以直接赋值给它，它可以通过调用lock函数来获得shared_ptr。</p>
+<p>weak_ptr没有重载 * 和 -&gt; ，所以并不能直接使用资源。但可以使用lock()获得一个可用的shared_ptr对象，<br />
+如果对象已经死了，lock()会失败，返回一个空的shared_ptr。</p>
 <h2 id="stl"><a class="markdownIt-Anchor" href="#stl"></a> STL</h2>
 <p>vector:底层数据结构为数组 ，支持快速随机访问。</p>
 <p>list:底层数据结构为双向链表，支持快速增删。</p>

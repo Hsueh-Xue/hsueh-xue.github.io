@@ -231,7 +231,7 @@
             
               <p class="note note-info">
                 
-                  本文最后更新于：星期二, 四月 13日 2021, 2:52 下午
+                  本文最后更新于：星期二, 四月 13日 2021, 2:53 下午
                 
               </p>
             
@@ -815,7 +815,7 @@ auto_ptr是一个智能指针，用于管理通过新表达式获取的对象，
 <p>C<ins>里面有四个指针：auto_ptr、unique_ptr、shared_ptr、weak_ptr，后面三个是C</ins>11支持的，第一个被C++11弃用。</p>
 <h3 id="auto_ptr有什么样的问题"><a class="markdownIt-Anchor" href="#auto_ptr有什么样的问题"></a> auto_ptr有什么样的问题</h3>
 <p>看如下代码：</p>
-<figure class="highlight c++"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs c++"><span class="hljs-function"><span class="hljs-built_in">auto_ptr</span>&lt;<span class="hljs-built_in">string</span>&gt; <span class="hljs-title">p1</span> <span class="hljs-params">(``<span class="hljs-keyword">new</span>` `<span class="hljs-built_in">string</span> (``<span class="hljs-string">&quot;I am jiang douya.&quot;</span>``))</span></span>; <span class="hljs-built_in">auto_ptr</span>&lt;<span class="hljs-built_in">string</span>&gt; p2; ``p2 = p1; ``<span class="hljs-comment">//auto_ptr不会报错.</span><br></code></pre></div></td></tr></table></figure>
+<figure class="highlight c++"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs c++"><span class="hljs-function"><span class="hljs-built_in">auto_ptr</span>&lt;<span class="hljs-built_in">string</span>&gt; <span class="hljs-title">p1</span> <span class="hljs-params">(``<span class="hljs-keyword">new</span>` `<span class="hljs-built_in">string</span> (``<span class="hljs-string">&quot;I am jiang douya.&quot;</span>``))</span></span>;<br><span class="hljs-built_in">auto_ptr</span>&lt;<span class="hljs-built_in">string</span>&gt; p2; ``p2 = p1; ``<span class="hljs-comment">//auto_ptr不会报错.</span><br></code></pre></div></td></tr></table></figure>
 <p><strong>auto</strong>指针存在的问题是，两个智能指针同时指向一块内存，就会两次释放同一块资源，存在潜在的内存崩溃问题！因此<strong>auto</strong>指针被C++11弃用。应该用<strong>unique</strong>指针替代<strong>auto</strong>指针。</p>
 <h3 id="unique_ptr指针实现原理"><a class="markdownIt-Anchor" href="#unique_ptr指针实现原理"></a> unique_ptr指针实现原理</h3>
 <p><strong>unique指针</strong>规定<strong>一个智能指针独占一块内存资源</strong>。当两个智能指针同时指向一块内存，编译报错。</p>
